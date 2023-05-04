@@ -1,0 +1,80 @@
+.contenedor-global{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(50, 2vh);
+  grid-template-areas:
+      "header header"
+      "main main"
+      "footer footer";
+  background-color: black;
+
+}
+
+.footer{
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+}
+
+header{
+  font-size: 20px;
+  text-align: center;
+  padding-top: 30px;
+
+}
+
+.cabecera{
+  grid-area: "header";
+  grid-column: 1/50;
+  grid-row: 1/6;
+  background-color: pink;
+
+}
+
+.pie{
+  grid-area: "footer";
+  grid-column: 1/50;
+  grid-row: 47/51;
+  background-color: blue;
+}
+
+.cuerpo{
+  grid-area: "main";
+  grid-column: 1/50;
+  grid-row: 6/45;
+  background-color: yellow;;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(20, 5%);
+
+}
+
+.cuerpo-uno{
+  grid-column: 1/14;
+  grid-row: 1/21;
+  background-color: green;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(20, 5%);
+
+
+}
+
+.cuerpo-dos{
+  grid-column: 14/21;
+  grid-row: 1/21;
+  background-color: red;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(20, 5%);
+}
+

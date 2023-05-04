@@ -1,0 +1,41 @@
+.imagen-home{
+  grid-column: 5/17;
+  grid-row: 9/21;
+  background-color: beige;
+}
+
+.titulo {
+  grid-column: 3/19;
+  grid-row: 2/5;
+  background-color: aqua;
+}
+
+.form-registro{
+  grid-column: 3/19;
+  grid-row: 10/19;
+  background-color: rgb(169, 179, 179);
+}
+
+.form-login{
+  grid-column: 3/19;
+  grid-row: 10/19;
+  background-color: rgb(169, 179, 179);
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+  display: inline;
+  margin: 30px;
+}
+
+.menu-principal{
+  grid-column: 4/18;
+  grid-row: 6/8;
+  background-color: antiquewhite
+}
+
