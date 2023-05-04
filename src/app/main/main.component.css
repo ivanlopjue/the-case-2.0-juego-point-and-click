@@ -1,3 +1,6 @@
+@import '../../assets/css/animaciones.css';
+@import '../ventana-juego/ventana-juego.component.css';
+
 .contenedor-global{
   width: 100%;
   height: 100%;
@@ -31,7 +34,7 @@ header{
   grid-column: 1/50;
   grid-row: 1/6;
   background-color: pink;
-
+  opacity: 1;
 }
 
 .pie{
@@ -77,4 +80,63 @@ header{
   grid-template-columns: repeat(20, 5%);
   grid-template-rows: repeat(20, 5%);
 }
+
+.ranking{
+  grid-column: 5/17;
+  grid-row: 9/42;
+  background-color: black;
+  z-index: 1;
+  display: none;
+  grid-template-columns: repeat(20, 5%);
+  grid-template-rows: repeat(20, 5%);
+  border: 1px solid white;
+  /* background-image: url('../../assets/img/fondos/home/fondo_ranking.jpg'); */
+  border-radius: 20px 20px;
+}
+
+.textoJuego{
+  grid-column: 7/15;
+  grid-row: 43/49;
+  background-color: lightcyan;
+  z-index: 1;
+  display: none;
+  border-radius: 20px 20px;
+  border: 1px solid white;
+}
+
+.misNotas{
+  grid-column: 6/16;
+  grid-row: 1/8;
+  background-color: lightcyan;
+  z-index: 1;
+  display: none;
+  border-radius: 20px 20px;
+  border: 1px solid white;
+}
+
+#menu-principal{
+  grid-column: 15/20;
+  grid-row: 15/20;
+  background-color: aliceblue;
+  z-index: 5;
+  padding: 5px;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+  display: inline;
+  margin: 25px;
+}
+
+#boton-juego, #boton-ranking{
+  padding: 15px;
+  border-radius: 20px 20px;
+  border-color: white;
+}
+
 

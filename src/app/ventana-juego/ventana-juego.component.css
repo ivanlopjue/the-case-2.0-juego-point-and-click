@@ -1,0 +1,264 @@
+.juego{
+  grid-column: 5/17;
+  grid-row: 9/42;
+  background-color: black;
+  z-index: 1;
+  display: none;
+  grid-template-columns: repeat(100, 1%);
+  grid-template-rows: repeat(100, 1%);
+  border: 1px solid white;
+  background-image: url('../../assets/img/fondos/estancias/hall.jpg');
+  position: relative;
+  border-radius: 20px 20px;
+}
+
+/* -------------------------------------- ESTILOS ESTANCIAS ----------------------------------------- */
+
+/* -------------------- Botones Hall */
+#salirJuego{
+  grid-column: 90/100;
+  grid-row: 5/10;
+  border-radius: 20px 20px;
+  background-color: transparent;
+  opacity: 0.4;
+  color: lightcoral;
+  border: 1px solid white;
+}
+
+#salirJuego:hover{
+  opacity: 1;
+  color: white;
+  background-color: lightcoral;
+}
+
+.btnsHall{
+  background-color: transparent;
+  opacity: 0.5;
+  color: white;
+}
+
+.btnsHall:hover{
+  background-color: lightcoral;
+  box-shadow: 0px 2px 20px lightcoral;
+  opacity: 1;
+}
+
+/* -------------------- Botones Hab1 */
+
+#hab1{
+  grid-column: 60/65;
+  grid-row: 53/58;
+  border-radius: 40px 40px;
+}
+
+#objetoHab1{
+  grid-column: 64/67;
+  grid-row: 60/63;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Hab2 */
+
+#hab2{
+  grid-column: 80/85;
+  grid-row: 50/55;
+  border-radius: 20px 20px;
+}
+
+#objetoHab2{
+  grid-column: 61/64;
+  grid-row: 71/74;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Hab3 */
+
+#hab3{
+  grid-column: 92/97;
+  grid-row: 45/50;
+  border-radius: 20px 20px;
+}
+
+#objetoHab3{
+  grid-column: 64/67;
+  grid-row: 61/64;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Hab4 */
+
+#hab4{
+  grid-column: 38/43;
+  grid-row: 52/57;
+  border-radius: 20px 20px;
+}
+
+#objetoHab4{
+  grid-column: 31/34;
+  grid-row: 57/60;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Hab5 */
+
+#hab5{
+  grid-column: 22/27;
+  grid-row: 55/60;
+  border-radius: 20px 20px;
+}
+
+#objetoHab5{
+  grid-column: 16/19;
+  grid-row: 53/56;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Hab6 */
+
+#hab6{
+  grid-column: 5/10;
+  grid-row: 45/50;
+  border-radius: 20px 20px;
+}
+
+#objetoHab6{
+  grid-column: 13/16;
+  grid-row: 53/56;
+  border-radius: 40px 40px;
+}
+
+/* -------------------- Botones Comunes */
+
+#volverHallIzq{
+  grid-column: 4/7;
+  grid-row: 40/70;
+  border-radius: 20px 20px;
+  background-color: lightcoral;
+  opacity: 0.5;
+}
+
+#volverHallIzq:hover{
+  background-color: lightcoral;
+  opacity: 1;
+  color: white;
+}
+
+#volverHallDer{
+  grid-column: 94/97;
+  grid-row: 40/70;
+  border-radius: 20px 20px;
+  background-color: lightcoral;
+  opacity: 0.5;
+}
+
+#volverHallDer:hover{
+  background-color: lightcoral;
+  opacity: 1;
+  color: white;
+}
+
+#npcDer{
+  grid-column: 96/99;
+  grid-row: 5/10;
+  border-radius: 25px 25px;
+  background-color: lightcyan;
+  opacity: 0.5;
+}
+
+#npcDer:hover{
+  opacity: 1;
+}
+
+#npcIzq{
+  grid-column: 2/5;
+  grid-row: 5/10;
+  border-radius: 25px 25px;
+  background-color: lightcyan;
+  opacity: 0.5;
+}
+
+#npcIzq:hover{
+  opacity: 1;
+}
+
+.objeto{
+  background-color: transparent;
+  opacity: 0.3;
+}
+
+.objeto:hover{
+  background-color: transparent;
+  opacity: 0.8;
+  cursor: help;
+}
+
+.pregunta{
+  border-radius: 25px 25px;
+  background-color: lightblue;
+  display: none;
+}
+
+.pregunta:hover{
+  background-color: lightcyan;
+  opacity: 1;
+  border: 1px solid white;
+}
+
+#preguntaNombreIzq{
+  grid-column: 55/75;
+  grid-row: 20/30;
+}
+
+#preguntaCoartadaIzq{
+  grid-column: 55/75;
+  grid-row: 40/50;
+}
+
+#preguntaAcusacionIzq{
+  grid-column: 55/75;
+  grid-row: 60/70;
+}
+
+#preguntaNombreDer{
+  grid-column: 25/45;
+  grid-row: 20/30;
+}
+
+#preguntaCoartadaDer{
+  grid-column: 25/45;
+  grid-row: 40/50;
+}
+
+#preguntaAcusacionDer{
+  grid-column: 25/45;
+  grid-row: 60/70;
+}
+
+/* -------------------------------------- ESTILOS PERSONAJES ----------------------------------------- */
+
+.personajeDer{
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 3px;
+  left: 500px;
+}
+
+.personajeIzq{
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 3px;
+  left: 100px;
+}
+
+/* -------------------------------------- ESTILOS OBJETOS ----------------------------------------- */
+
+.objetos{
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top: 170px;
+  left: 400px;
+}
+

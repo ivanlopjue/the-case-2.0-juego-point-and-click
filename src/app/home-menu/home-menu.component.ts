@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-home-menu',
@@ -6,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-menu.component.css']
 })
 export class HomeMenuComponent {
+  main = new MainComponent();
+
     verJuego(){
-      console.log("juego");
+      this.main.verJuego();
     }
 
     verRanking(){
-      console.log("ranking");
+      this.main.verRanking();
     }
 }

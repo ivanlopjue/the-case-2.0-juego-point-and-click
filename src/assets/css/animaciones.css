@@ -1,0 +1,69 @@
+@keyframes moverFondo {
+  from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+}
+
+@keyframes colorBorde{
+  0% {
+      box-shadow: 0px 5px 20px lightcoral;
+  }
+  50%{
+      box-shadow: 0px 5px 25px lightcoral;
+  }
+  100% {
+      box-shadow: 0px 5px 170px lightcoral;
+  }
+  50%{
+      box-shadow: 0px 5px 25px lightcoral;
+  }
+  0% {
+      box-shadow: 0px 5px 20px lightcoral;
+  }
+}
+
+
+@keyframes abrirDivs {
+  from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+@keyframes moverPersonajeDer {
+  from {
+      top: 3px;
+      left: 100px;
+    }
+    to {
+      top: 3px;
+      left:500px;
+    }
+}
+
+@keyframes moverPersonajeIzq {
+  from {
+      top: 3px;
+      left: 500px;
+    }
+    to {
+      top: 3px;
+      left:100px;
+    }
+}
+
+@keyframes verBtnPregIzq {
+  from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 0.8;
+    }
+}
+
+

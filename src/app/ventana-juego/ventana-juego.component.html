@@ -1,1 +1,90 @@
-<p>ventana-juego works!</p>
+<!-- <img src="{{ asset('img/personajes/Noah_Rios/noah.png')}}" alt="" class="personaje personajeDer" id="guia">
+<img src="{{ asset('img/personajes/Doctor_X/doctor.png')}}" alt="" class="personaje personajeDer" id="doctor_x">
+<img src="{{ asset('img/personajes/Emily_Yang/emily.png')}}" alt="" class="personaje personajeDer" id="emily">
+<img src="{{ asset('img/personajes/Ethan_Valdez/ethan.png')}}" alt="" class="personaje personajeDer" id="ethan">
+<img src="{{ asset('img/personajes/Isa_Cortés/isa.png')}}" alt="" class="personaje personajeIzq" id="isa">
+<img src="{{ asset('img/personajes/Mei_Chen/mei.png')}}" alt="" class="personaje personajeIzq" id="mei">
+<img src="{{ asset('img/personajes/Vicky_Peña/vicky.png')}}" alt="" class="personaje personajeIzq" id="vicky">
+
+{{-- ---------------- IMAGENES OBJETOS -----------------------------------------  --}}
+
+<img src="@{{imagenesObjetos[0]}}" alt="" class="objetos" id="object1">
+<img src="{{ asset('img/objetos/objetos/10.png')}}" alt="" class="objetos" id="object2">
+<img src="{{ asset('img/objetos/objetos/6.png')}}" alt="" class="objetos" id="object3">
+<img src="{{ asset('img/objetos/objetos/8.png')}}" alt="" class="objetos" id="object4">
+<img src="{{ asset('img/objetos/objetos/1.png')}}" alt="" class="objetos" id="object5">
+<img src="{{ asset('img/objetos/objetos/2.png')}}" alt="" class="objetos" id="object6"> -->
+
+<!-- {{-- -------------------------------------------------- BOTONES --------------------------------------  --}} -->
+
+<!-- {{-- ---------------- BOTONES HALL -----------------------------------------  --}} -->
+<button class="btn btnsHall" onclick="verJuego()" id="salirJuego">SALIR</button>
+<button class="btn btnsHall" onclick="verEstancia('hab1')" id="hab1">!</button>
+<button class="btn btnsHall" onclick="verEstancia('hab2')" id="hab2">!</button>
+<button class="btn btnsHall" onclick="verEstancia('hab3')" id="hab3">!</button>
+<button class="btn btnsHall" onclick="verEstancia('hab4')" id="hab4">!</button>
+<button class="btn btnsHall" onclick="verEstancia('hab5')" id="hab5">!</button>
+<button class="btn btnsHall" onclick="verEstancia('hab6')" id="hab6">!</button>
+
+<!-- {{-- ---------------- BOTONES HAB1 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab1 volverHall" onclick="verEstancia('hall')" id="volverHallIzq"><-</button>
+<button class="btn btnsHab1 npc" onclick="personaje(0)" id="npcDer">?</button>
+<button class="btn btnsHab1 objeto" onclick="objeto(0)" id="objetoHab1"></button>
+
+<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+
+<!-- {{-- ---------------- BOTONES HAB2 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab2 volverHall" onclick="verEstancia('hall')" id="volverHallIzq"><-</button>
+<button class="btn btnsHab2 npc" onclick="personaje(1)" id="npcDer">?</button>
+<button class="btn btnsHab2 objeto" onclick="objeto(1)" id="objetoHab2"></button>
+
+
+<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+
+<!-- {{-- ---------------- BOTONES HAB3 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab3 volverHall" onclick="verEstancia('hall')" id="volverHallIzq"><-</button>
+<button class="btn btnsHab3 npc" onclick="personaje(2)" id="npcDer">?</button>
+<button class="btn btnsHab3 objeto" onclick="objeto(2)" id="objetoHab3"></button>
+
+
+<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+
+<!-- {{-- ---------------- BOTONES HAB4 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab4 volverHall" onclick="verEstancia('hall')" id="volverHallDer">-></button>
+<button class="btn btnsHab4 npc" onclick="personaje(3)" id="npcIzq">?</button>
+<button class="btn btnsHab4 objeto" onclick="objeto(3)" id="objetoHab4"></button>
+
+<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+
+<!-- {{-- ---------------- BOTONES HAB5 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab5 volverHall" onclick="verEstancia('hall')" id="volverHallDer">-></button>
+<button class="btn btnsHab5 npc" onclick="personaje(4)" id="npcIzq">?</button>
+<button class="btn btnsHab5 objeto" onclick="objeto(4)" id="objetoHab5"></button>
+
+<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+
+<!-- {{-- ---------------- BOTONES HAB6 -----------------------------------------  --}} -->
+
+<button class="btn btnsHab6 volverHall" onclick="verEstancia('hall')" id="volverHallDer">-></button>
+<button class="btn btnsHab6 npc" onclick="personaje(5)" id="npcIzq">?</button>
+<button class="btn btnsHab6 objeto" onclick="objeto(5)" id="objetoHab6"></button>
+
+<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+
