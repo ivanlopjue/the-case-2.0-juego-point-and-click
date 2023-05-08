@@ -9,9 +9,11 @@ import { DatosComponent, Estancia, Personaje, Objeto } from '../datos/datos.comp
   styleUrls: ['./ventana-juego.component.css']
 })
 export class VentanaJuegoComponent {
-  imgPersonajes: DatosComponent = new DatosComponent();
-
+  datos: DatosComponent = new DatosComponent();
   main: MainComponent = new MainComponent();
+
+  arrayPersonajes: Personaje[] = [];
+  arrayObejtos: Objeto[] = [];
 
   botonesGeneral: any = document.getElementsByClassName("btn");
   personajeGeneral: any = document.getElementsByClassName("personaje");
@@ -29,7 +31,11 @@ export class VentanaJuegoComponent {
   botonesHab5: any = document.getElementsByClassName('btnsHab5');
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
-  imgEstancias: DatosComponent = new DatosComponent();
+  hab1: Estancia = new Estancia();
+
+  constructor(){
+    this.iniciarJuego();
+  }
 
   verJuego(){
     this.main.verJuego();
@@ -56,70 +62,78 @@ export class VentanaJuegoComponent {
   }
 
   verEstancia(nombreEstancia: string){
-    if(this.main.juego){
-      this.ocultar();
-      switch(nombreEstancia){
-        case "hall":
-          this.main.juego.style.backgroundImage = this.imgEstancias.imgEstancias[0];
+    this.main.cuadroTexto.textContent = "";
+    this.ocultar();
+    switch(nombreEstancia){
+      case "hall":
+        this.main.juego.style.backgroundImage = this.datos.imgEstancias[0];
 
-          for (var i = 0;i < this.botonesHall.length;i++){
-            this.botonesHall[i].style.display = "block";
-          }
+        for (var i = 0;i < this.botonesHall.length;i++){
+          this.botonesHall[i].style.display = "block";
+        }
 
-          break;
-        case "hab1":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_uno.jpg')";
+        break;
+      case "hab1":
+        this.hab1.nombre = "Sala de Realidad Virtual";
+        this.hab1.imagen = this.datos.imgEstancias[1];
+        this.hab1.rol = this.datos.rolEstanciaYObjeto[0];
+        this.hab1.descripcion = "";
+        this.hab1.personaje = this.arrayPersonajes[0];
+        this.hab1.objeto =
 
-          for (var i = 0;i < this.botonesHab1.length;i++){
-            this.botonesHab1[i].style.display = "block";
-          }
+        this.main.juego.style.backgroundImage = this.hab1.imagen;
 
-          break;
-          case "hab2":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_dos.jpg')";
+        for (var i = 0;i < this.botonesHab1.length;i++){
+          this.botonesHab1[i].style.display = "block";
+        }
 
-          for (var i = 0;i < this.botonesHab2.length;i++){
-            this.botonesHab2[i].style.display = "block";
-          }
+        break;
+        case "hab2":
+        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_dos.jpg')";
 
-          break;
-          case "hab3":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_tres.jpg')";
+        for (var i = 0;i < this.botonesHab2.length;i++){
+          this.botonesHab2[i].style.display = "block";
+        }
 
-          for (var i = 0;i < this.botonesHab3.length;i++){
-            this.botonesHab3[i].style.display = "block";
-          }
+        break;
+        case "hab3":
+        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_tres.jpg')";
 
-          break;
-          case "hab4":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cuatro.jpg')";
+        for (var i = 0;i < this.botonesHab3.length;i++){
+          this.botonesHab3[i].style.display = "block";
+        }
 
-          for (var i = 0;i < this.botonesHab4.length;i++){
-            this.botonesHab4[i].style.display = "block";
-          }
+        break;
+        case "hab4":
+        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cuatro.jpg')";
 
-          break;
-          case "hab5":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cinco.jpg')";
+        for (var i = 0;i < this.botonesHab4.length;i++){
+          this.botonesHab4[i].style.display = "block";
+        }
 
-          for (var i = 0;i < this.botonesHab5.length;i++){
-            this.botonesHab5[i].style.display = "block";
-          }
+        break;
+        case "hab5":
+        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cinco.jpg')";
 
-          break;
-          case "hab6":
-          this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_seis.jpg')";
+        for (var i = 0;i < this.botonesHab5.length;i++){
+          this.botonesHab5[i].style.display = "block";
+        }
 
-          for (var i = 0;i < this.botonesHab6.length;i++){
-            this.botonesHab6[i].style.display = "block";
-          }
+        break;
+        case "hab6":
+        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_seis.jpg')";
 
-          break;
-      }
+        for (var i = 0;i < this.botonesHab6.length;i++){
+          this.botonesHab6[i].style.display = "block";
+        }
+
+        break;
     }
+
   }
 
   verPersonaje(numero: number){
+    this.main.cuadroTexto.textContent = "";
     if (numero < 3){
       if(this.personajeGeneral[numero].style.display == "block"){
         this.personajeGeneral[numero].style.display = "none";
@@ -149,6 +163,7 @@ export class VentanaJuegoComponent {
   }
 
   verObjeto(numero: number){
+    this.main.cuadroTexto.textContent = "";
     if(this.objetosGeneral){
       if(this.objetosGeneral[numero].style.display == "block"){
         this.objetosGeneral[numero].style.display = "none";
@@ -177,8 +192,37 @@ export class VentanaJuegoComponent {
   }
 
   iniciarJuego(){
-    this.mezclarArray(this.imgPersonajes.imgPersonaje);
-    this.mezclarArray(this.imgPersonajes.imgObjetos);
+    this.mezclarArray(this.datos.imgPersonaje);
+    this.mezclarArray(this.datos.imgObjetos);
+    this.mezclarArray(this.datos.rolEstanciaYObjeto);
+
+    for (var i = 0; i < 6;i++){
+      this.arrayPersonajes[i] = new Personaje;
+      this.arrayPersonajes[i].rol = this.datos.rolEstanciaYObjeto[i];
+      this.arrayPersonajes[i].imagen = this.datos.imgPersonaje[i];
+      this.arrayPersonajes[i].nombre = this.arrayPersonajes[i].imagen.substring(28, 32).replace("_","");
+      this.arrayPersonajes[i].respNombre = this.arrayPersonajes[i].nombre;
+      if (this.arrayPersonajes[i].rol == "inocente"){
+        this.arrayPersonajes[i].respCoartada = "soy inocente";
+      } else {
+        this.arrayPersonajes[i].respCoartada = "soy culpable";
+      }
+      if (this.arrayPersonajes[i].rol == "inocente"){
+        this.arrayPersonajes[i].respAcusar = "no acuso";
+      } else {
+        this.arrayPersonajes[i].respAcusar = "todos culpables";
+      }
+      console.log(this.arrayPersonajes[i]);
+    }
+  }
+
+
+  respuestasPersonaje(numero: number, pregunta: string){
+      if(pregunta == "nombre"){
+        this.main.cuadroTexto.textContent = this.arrayPersonajes[numero].nombre;
+      }
   }
 }
+
+
 

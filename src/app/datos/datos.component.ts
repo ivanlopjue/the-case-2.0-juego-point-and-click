@@ -33,13 +33,22 @@ export class DatosComponent {
     "../../assets/img/objetos/objetos/1.png",
     "../../assets/img/objetos/objetos/2.png",
   ];
+
+  rolEstanciaYObjeto: any [] = [
+    "inocente",
+    "inocente",
+    "inocente",
+    "culpable",
+    "inocente",
+    "inocente",
+  ]
 }
 
 export class Estancia {
   nombre: string = "";
   imagen: string = "";
   descripcion: string = "";
-  personaje: string = "";
+  personaje: Personaje = new Personaje;
   objeto: string = "";
   rol: string = "";
 }

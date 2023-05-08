@@ -1,18 +1,18 @@
-<img [src]="imgPersonajes.imgPersonaje[0]" alt="" class="personaje personajeDer" id="guia">
-<img [src]="imgPersonajes.imgPersonaje[1]" alt="" class="personaje personajeDer" id="doctor_x">
-<img [src]="imgPersonajes.imgPersonaje[2]" alt="" class="personaje personajeDer" id="emily">
-<img [src]="imgPersonajes.imgPersonaje[3]" alt="" class="personaje personajeIzq" id="isa">
-<img [src]="imgPersonajes.imgPersonaje[4]" alt="" class="personaje personajeIzq" id="mei">
-<img [src]="imgPersonajes.imgPersonaje[5]" alt="" class="personaje personajeIzq" id="vicky">
+<img [src]="arrayPersonajes[0].imagen" alt="" class="personaje personajeDer" id="guia">
+<img [src]="arrayPersonajes[1].imagen" alt="" class="personaje personajeDer" id="doctor_x">
+<img [src]="arrayPersonajes[2].imagen" alt="" class="personaje personajeDer" id="emily">
+<img [src]="arrayPersonajes[3].imagen" alt="" class="personaje personajeIzq" id="isa">
+<img [src]="arrayPersonajes[4].imagen" alt="" class="personaje personajeIzq" id="mei">
+<img [src]="arrayPersonajes[5].imagen" alt="" class="personaje personajeIzq" id="vicky">
 
 <!-- {{-- ---------------- IMAGENES OBJETOS -----------------------------------------  --}} -->
 
-<img [src]="imgPersonajes.imgObjetos[0]" alt="" class="objetos" id="object1">
-<img [src]="imgPersonajes.imgObjetos[1]" alt="" class="objetos" id="object2">
-<img [src]="imgPersonajes.imgObjetos[2]" alt="" class="objetos" id="object3">
-<img [src]="imgPersonajes.imgObjetos[3]" alt="" class="objetos" id="object4">
-<img [src]="imgPersonajes.imgObjetos[4]" alt="" class="objetos" id="object5">
-<img [src]="imgPersonajes.imgObjetos[5]" alt="" class="objetos" id="object6">
+<img [src]="datos.imgObjetos[0]" alt="" class="objetos" id="object1">
+<img [src]="datos.imgObjetos[1]" alt="" class="objetos" id="object2">
+<img [src]="datos.imgObjetos[2]" alt="" class="objetos" id="object3">
+<img [src]="datos.imgObjetos[3]" alt="" class="objetos" id="object4">
+<img [src]="datos.imgObjetos[4]" alt="" class="objetos" id="object5">
+<img [src]="datos.imgObjetos[5]" alt="" class="objetos" id="object6">
 
 <!-- {{-- -------------------------------------------------- BOTONES --------------------------------------  --}} -->
 
@@ -31,7 +31,7 @@
 <button class="btn btnsHab1 npc" (click)="verPersonaje(0)" id="npcDer">?</button>
 <button class="btn btnsHab1 objeto" (click)="verObjeto(0)" id="objetoHab1"></button>
 
-<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(0, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
 
@@ -42,7 +42,7 @@
 <button class="btn btnsHab2 objeto" (click)="verObjeto(1)" id="objetoHab2"></button>
 
 
-<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(1, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
 
@@ -53,7 +53,7 @@
 <button class="btn btnsHab3 objeto" (click)="verObjeto(2)" id="objetoHab3"></button>
 
 
-<button class="btnPregIzq pregunta" onclick="obtenerNombre()" id="preguntaNombreDer">¿Nombre?</button>
+<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(2, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
 <button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
 
@@ -63,7 +63,7 @@
 <button class="btn btnsHab4 npc" (click)="verPersonaje(3)" id="npcIzq">?</button>
 <button class="btn btnsHab4 objeto" (click)="verObjeto(3)" id="objetoHab4"></button>
 
-<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" (click)="respuestasPersonaje(3, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
 <button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
 <button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
 
@@ -73,7 +73,7 @@
 <button class="btn btnsHab5 npc" (click)="verPersonaje(4)" id="npcIzq">?</button>
 <button class="btn btnsHab5 objeto" (click)="verObjeto(4)" id="objetoHab5"></button>
 
-<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" (click)="respuestasPersonaje(4, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
 <button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
 <button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
 
@@ -83,7 +83,7 @@
 <button class="btn btnsHab6 npc" (click)="verPersonaje(5)" id="npcIzq">?</button>
 <button class="btn btnsHab6 objeto" (click)="verObjeto(5)" id="objetoHab6"></button>
 
-<button class="btnPregDer pregunta" onclick="obtenerNombre()" id="preguntaNombreIzq">¿Nombre?</button>
+<button class="btnPregDer pregunta" (click)="respuestasPersonaje(5, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
 <button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
 <button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
 
