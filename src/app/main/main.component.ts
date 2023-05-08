@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component';
-import { HomeMenuComponent } from '../home-menu/home-menu.component';
-
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -9,37 +6,44 @@ import { HomeMenuComponent } from '../home-menu/home-menu.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  ventanaJuego = new VentanaJuegoComponent();
 
-  juego = document.getElementById('juego');
-  ranking = document.getElementById('ranking');
+  pie: any = document.getElementById('pie');
+  cuerpo: any = document.getElementById('cuerpo');
+  cabecera: any = document.getElementById('cabecera');
 
+  contenedor: any = document.getElementById('contenedor-global');
+
+  cuadroMisNotas: any = document.getElementById('misNotas');
+  cuadroTexto: any = document.getElementById('textoJuego');
+  juego: any = document.getElementById('juego');
+  ranking: any = document.getElementById('ranking');
 
   verJuego(){
-    if(this.juego) {
+
       if(this.juego.style.display == "grid"){
         this.juego.style.display = "none";
-      } else {
-        this.ventanaJuego.ocultar();
-        this.juego.style.display = "grid";
-        this.juego.style.animation = "colorBorde 20s infinite alternate, abrirDivs 3s";
-      }
+        this.cuadroMisNotas.style.display = "none";
+        this.cuadroTexto.style.display = "none";
 
+
+      } else {
+        this.juego.style.display = "grid";
+        this.cuadroMisNotas.style.display = "block";
+        this.cuadroTexto.style.display = "block";
+
+
+      }
     }
 
-  }
 
   verRanking(){
 
-    if(this.ranking){
       if(this.ranking.style.display == "grid"){
         this.ranking.style.display = "none";
       } else {
         this.ranking.style.display = "grid";
-        this.ranking.style.animation = 'abrirDivs 3s';
         this.ranking.style.backgroundImage = "url('../../assets/img/fondos/home/fondo_ranking.jpg')";
       }
-    }
   }
 
 }

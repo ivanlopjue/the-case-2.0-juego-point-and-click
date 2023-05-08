@@ -1,3 +1,5 @@
+@import '../../assets/css/animaciones.css';
+
 .juego{
   grid-column: 5/17;
   grid-row: 9/42;
@@ -7,9 +9,9 @@
   grid-template-columns: repeat(100, 1%);
   grid-template-rows: repeat(100, 1%);
   border: 1px solid white;
-  background-image: url('../../assets/img/fondos/estancias/hall.jpg');
   position: relative;
   border-radius: 20px 20px;
+  animation: colorBorde 20s infinite alternate, abrirDivs 2s;
 }
 
 /* -------------------------------------- ESTILOS ESTANCIAS ----------------------------------------- */
@@ -196,6 +198,7 @@
   border-radius: 25px 25px;
   background-color: lightblue;
   display: none;
+  animation: verBtnPregIzq 5s;
 }
 
 .pregunta:hover{
@@ -242,6 +245,7 @@
   position: absolute;
   top: 3px;
   left: 500px;
+  animation: moverPersonajeDer 4s;
 }
 
 .personajeIzq{
@@ -250,6 +254,7 @@
   position: absolute;
   top: 3px;
   left: 100px;
+  animation: moverPersonajeIzq 4s;
 }
 
 /* -------------------------------------- ESTILOS OBJETOS ----------------------------------------- */

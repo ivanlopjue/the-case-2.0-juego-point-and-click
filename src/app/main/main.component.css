@@ -12,7 +12,6 @@
       "main main"
       "footer footer";
   background-color: black;
-
 }
 
 .footer{
@@ -26,41 +25,38 @@ header{
   font-size: 20px;
   text-align: center;
   padding-top: 30px;
-
 }
 
 .cabecera{
   grid-area: "header";
   grid-column: 1/50;
   grid-row: 1/6;
-  background-color: pink;
-  opacity: 1;
+  background-color: black;
 }
 
 .pie{
   grid-area: "footer";
   grid-column: 1/50;
   grid-row: 47/51;
-  background-color: blue;
+  background-color: black;
 }
 
 .cuerpo{
   grid-area: "main";
   grid-column: 1/50;
   grid-row: 6/45;
-  background-color: yellow;;
+  background-color: black;;
   display: grid;
   width: 100%;
   height: 100%;
   grid-template-columns: repeat(20, 5%);
   grid-template-rows: repeat(20, 5%);
-
 }
 
 .cuerpo-uno{
   grid-column: 1/14;
   grid-row: 1/21;
-  background-color: green;
+  background-color: black;
   display: grid;
   width: 100%;
   height: 100%;
@@ -73,7 +69,7 @@ header{
 .cuerpo-dos{
   grid-column: 14/21;
   grid-row: 1/21;
-  background-color: red;
+  background-color: black;
   display: grid;
   width: 100%;
   height: 100%;
@@ -90,7 +86,7 @@ header{
   grid-template-columns: repeat(20, 5%);
   grid-template-rows: repeat(20, 5%);
   border: 1px solid white;
-  /* background-image: url('../../assets/img/fondos/home/fondo_ranking.jpg'); */
+  animation: abrirDivs 3s;
   border-radius: 20px 20px;
 }
 
@@ -102,6 +98,7 @@ header{
   display: none;
   border-radius: 20px 20px;
   border: 1px solid white;
+  animation: abrirDivs 2s;
 }
 
 .misNotas{
@@ -112,6 +109,7 @@ header{
   display: none;
   border-radius: 20px 20px;
   border: 1px solid white;
+  animation: abrirDivs 2s;
 }
 
 #menu-principal{
