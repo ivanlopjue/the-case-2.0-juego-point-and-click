@@ -14,8 +14,7 @@ export class HomeMenuComponent {
   ventana: VentanaJuegoComponent = new VentanaJuegoComponent();
 
     verJuego(){
-      this.main.verJuego();
-      this.ventana.verEstancia("hall");
+      this.ventana.verJuego();
     }
 
     verRanking(){

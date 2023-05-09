@@ -31,9 +31,9 @@
 <button class="btn btnsHab1 npc" (click)="verPersonaje(0)" id="npcDer">?</button>
 <button class="btn btnsHab1 objeto" (click)="verObjeto(0)" id="objetoHab1"></button>
 
-<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(0, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+<button class="btnPregIzq btnPreg1 pregunta" (click)="respuestasPersonaje(0, arrayEstancias, 'nombre')" id="btnPregNombreDer">¿Nombre?</button>
+<button class="btnPregIzq btnPreg1 pregunta" (click)="respuestasPersonaje(0, arrayEstancias, 'coartada')" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq btnPreg1 pregunta" (click)="respuestasPersonaje(0, arrayEstancias, 'acusar')" id="preguntaAcusacionDer">¿Acusacion?</button>
 
 <!-- {{-- ---------------- BOTONES HAB2 -----------------------------------------  --}} -->
 
@@ -42,9 +42,9 @@
 <button class="btn btnsHab2 objeto" (click)="verObjeto(1)" id="objetoHab2"></button>
 
 
-<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(1, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+<button class="btnPregIzq btnPreg2 pregunta" (click)="respuestasPersonaje(1, arrayEstancias, 'nombre')" id="btnPregNombreDer">¿Nombre?</button>
+<button class="btnPregIzq btnPreg2 pregunta" (click)="respuestasPersonaje(1, arrayEstancias, 'coartada')" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq btnPreg2 pregunta" (click)="respuestasPersonaje(1, arrayEstancias, 'acusar')" id="preguntaAcusacionDer">¿Acusacion?</button>
 
 <!-- {{-- ---------------- BOTONES HAB3 -----------------------------------------  --}} -->
 
@@ -53,9 +53,9 @@
 <button class="btn btnsHab3 objeto" (click)="verObjeto(2)" id="objetoHab3"></button>
 
 
-<button class="btnPregIzq pregunta" (click)="respuestasPersonaje(2, 'nombre')" id="preguntaNombreDer">¿Nombre?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaDer">¿Coartada?</button>
-<button class="btnPregIzq pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionDer">¿Acusacion?</button>
+<button class="btnPregIzq btnPreg3 pregunta" (click)="respuestasPersonaje(2, arrayEstancias, 'nombre')" id="btnPregNombreDer">¿Nombre?</button>
+<button class="btnPregIzq btnPreg3 pregunta" (click)="respuestasPersonaje(2, arrayEstancias, 'coartada')" id="preguntaCoartadaDer">¿Coartada?</button>
+<button class="btnPregIzq btnPreg3 pregunta" (click)="respuestasPersonaje(2, arrayEstancias, 'acusar')" id="preguntaAcusacionDer">¿Acusacion?</button>
 
 <!-- {{-- ---------------- BOTONES HAB4 -----------------------------------------  --}} -->
 
@@ -63,9 +63,9 @@
 <button class="btn btnsHab4 npc" (click)="verPersonaje(3)" id="npcIzq">?</button>
 <button class="btn btnsHab4 objeto" (click)="verObjeto(3)" id="objetoHab4"></button>
 
-<button class="btnPregDer pregunta" (click)="respuestasPersonaje(3, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
-<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
-<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+<button class="btnPregDer btnPreg4 pregunta" (click)="respuestasPersonaje(3, arrayEstancias, 'nombre')" id="btnPregNombreIzq">¿Nombre?</button>
+<button class="btnPregDer btnPreg4 pregunta" (click)="respuestasPersonaje(3, arrayEstancias, 'coartada')" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer btnPreg4 pregunta" (click)="respuestasPersonaje(3, arrayEstancias, 'acusar')" id="preguntaAcusacionIzq">¿Acusacion?</button>
 
 <!-- {{-- ---------------- BOTONES HAB5 -----------------------------------------  --}} -->
 
@@ -73,9 +73,9 @@
 <button class="btn btnsHab5 npc" (click)="verPersonaje(4)" id="npcIzq">?</button>
 <button class="btn btnsHab5 objeto" (click)="verObjeto(4)" id="objetoHab5"></button>
 
-<button class="btnPregDer pregunta" (click)="respuestasPersonaje(4, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
-<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
-<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+<button class="btnPregDer btnPreg5 pregunta" (click)="respuestasPersonaje(4, arrayEstancias, 'nombre')" id="btnPregNombreIzq">¿Nombre?</button>
+<button class="btnPregDer btnPreg5 pregunta" (click)="respuestasPersonaje(4, arrayEstancias, 'coartada')" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer btnPreg5 pregunta" (click)="respuestasPersonaje(4, arrayEstancias, 'acusar')" id="preguntaAcusacionIzq">¿Acusacion?</button>
 
 <!-- {{-- ---------------- BOTONES HAB6 -----------------------------------------  --}} -->
 
@@ -83,7 +83,7 @@
 <button class="btn btnsHab6 npc" (click)="verPersonaje(5)" id="npcIzq">?</button>
 <button class="btn btnsHab6 objeto" (click)="verObjeto(5)" id="objetoHab6"></button>
 
-<button class="btnPregDer pregunta" (click)="respuestasPersonaje(5, 'nombre')" id="preguntaNombreIzq">¿Nombre?</button>
-<button class="btnPregDer pregunta" onclick="obtenerCoartada()" id="preguntaCoartadaIzq">¿Coartada?</button>
-<button class="btnPregDer pregunta" onclick="obtenerAcusacion()" id="preguntaAcusacionIzq">¿Acusacion?</button>
+<button class="btnPregDer btnPreg6 pregunta" (click)="respuestasPersonaje(5, arrayEstancias, 'nombre')" id="btnPregNombreIzq">¿Nombre?</button>
+<button class="btnPregDer btnPreg6 pregunta" (click)="respuestasPersonaje(5, arrayEstancias, 'coartada')" id="preguntaCoartadaIzq">¿Coartada?</button>
+<button class="btnPregDer btnPreg6 pregunta" (click)="respuestasPersonaje(5, arrayEstancias, 'acusar')" id="preguntaAcusacionIzq">¿Acusacion?</button>
 

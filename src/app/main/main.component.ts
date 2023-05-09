@@ -25,13 +25,10 @@ export class MainComponent {
         this.cuadroMisNotas.style.display = "none";
         this.cuadroTexto.style.display = "none";
 
-
       } else {
         this.juego.style.display = "grid";
         this.cuadroMisNotas.style.display = "block";
         this.cuadroTexto.style.display = "block";
-
-
       }
     }
 

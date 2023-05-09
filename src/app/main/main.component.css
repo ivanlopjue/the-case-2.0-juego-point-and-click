@@ -94,22 +94,24 @@ header{
   grid-column: 7/15;
   grid-row: 43/49;
   background-color: lightcyan;
-  z-index: 1;
+  z-index: 3;
   display: none;
   border-radius: 20px 20px;
   border: 1px solid white;
   animation: abrirDivs 2s;
+  padding: 25px;
 }
 
 .misNotas{
   grid-column: 6/16;
   grid-row: 1/8;
   background-color: lightcyan;
-  z-index: 1;
+  z-index: 3;
   display: none;
   border-radius: 20px 20px;
   border: 1px solid white;
   animation: abrirDivs 2s;
+  padding:  15px;
 }
 
 #menu-principal{

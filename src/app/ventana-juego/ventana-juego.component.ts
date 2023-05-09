@@ -12,16 +12,24 @@ export class VentanaJuegoComponent {
   datos: DatosComponent = new DatosComponent();
   main: MainComponent = new MainComponent();
 
+
+  arrayEstancias: Estancia[] = [];
   arrayPersonajes: Personaje[] = [];
-  arrayObejtos: Objeto[] = [];
+  arrayObjetos: Objeto[] = [];
 
   botonesGeneral: any = document.getElementsByClassName("btn");
   personajeGeneral: any = document.getElementsByClassName("personaje");
   objetosGeneral: any = document.getElementsByClassName("objetos");
 
   btnPregGeneral: any = document.getElementsByClassName('pregunta');
-  btnPregIzq: any = document.getElementsByClassName('btnPregIzq');
-  btnPregDer: any = document.getElementsByClassName('btnPregDer');
+
+  btnPreg1: any = document.getElementsByClassName('btnPreg1');
+  btnPreg2: any = document.getElementsByClassName('btnPreg2');
+  btnPreg3: any = document.getElementsByClassName('btnPreg3');
+  btnPreg4: any = document.getElementsByClassName('btnPreg4');
+  btnPreg5: any = document.getElementsByClassName('btnPreg5');
+  btnPreg6: any = document.getElementsByClassName('btnPreg6');
+
 
   botonesHall: any = document.getElementsByClassName('btnsHall');
   botonesHab1: any = document.getElementsByClassName('btnsHab1');
@@ -31,14 +39,13 @@ export class VentanaJuegoComponent {
   botonesHab5: any = document.getElementsByClassName('btnsHab5');
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
-  hab1: Estancia = new Estancia();
-
-  constructor(){
-    this.iniciarJuego();
-  }
 
   verJuego(){
     this.main.verJuego();
+    this.verEstancia("hall");
+  }
+
+  ngOnInit(){
     this.iniciarJuego();
   }
 
@@ -62,10 +69,12 @@ export class VentanaJuegoComponent {
   }
 
   verEstancia(nombreEstancia: string){
-    this.main.cuadroTexto.textContent = "";
+
     this.ocultar();
     switch(nombreEstancia){
       case "hall":
+        this.main.cuadroTexto.textContent = "";
+        this.main.cuadroTexto.textContent = "Hall";
         this.main.juego.style.backgroundImage = this.datos.imgEstancias[0];
 
         for (var i = 0;i < this.botonesHall.length;i++){
@@ -74,54 +83,53 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab1":
-        this.hab1.nombre = "Sala de Realidad Virtual";
-        this.hab1.imagen = this.datos.imgEstancias[1];
-        this.hab1.rol = this.datos.rolEstanciaYObjeto[0];
-        this.hab1.descripcion = "";
-        this.hab1.personaje = this.arrayPersonajes[0];
-        this.hab1.objeto =
-
-        this.main.juego.style.backgroundImage = this.hab1.imagen;
+        this.main.cuadroTexto.textContent = this.arrayEstancias[0].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[0].imagen;
 
         for (var i = 0;i < this.botonesHab1.length;i++){
           this.botonesHab1[i].style.display = "block";
         }
 
         break;
-        case "hab2":
-        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_dos.jpg')";
+      case "hab2":
+        this.main.cuadroTexto.textContent = this.arrayEstancias[1].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[1].imagen;
 
         for (var i = 0;i < this.botonesHab2.length;i++){
           this.botonesHab2[i].style.display = "block";
         }
 
         break;
-        case "hab3":
-        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_tres.jpg')";
+      case "hab3":
+        this.main.cuadroTexto.textContent = this.arrayEstancias[2].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[2].imagen;
 
         for (var i = 0;i < this.botonesHab3.length;i++){
           this.botonesHab3[i].style.display = "block";
         }
 
         break;
-        case "hab4":
-        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cuatro.jpg')";
+      case "hab4":
+        this.main.cuadroTexto.textContent = this.arrayEstancias[3].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[3].imagen;
 
         for (var i = 0;i < this.botonesHab4.length;i++){
           this.botonesHab4[i].style.display = "block";
         }
 
         break;
-        case "hab5":
-        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_cinco.jpg')";
+      case "hab5":
+        this.main.cuadroTexto.textContent = this.arrayEstancias[4].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[4].imagen;
 
         for (var i = 0;i < this.botonesHab5.length;i++){
           this.botonesHab5[i].style.display = "block";
         }
 
         break;
-        case "hab6":
-        this.main.juego.style.backgroundImage = "url('../../assets/img/fondos/estancias/hab_seis.jpg')";
+      case "hab6":
+        this.main.cuadroTexto.textContent = this.arrayEstancias[5].descripcion;
+        this.main.juego.style.backgroundImage = this.arrayEstancias[5].imagen;
 
         for (var i = 0;i < this.botonesHab6.length;i++){
           this.botonesHab6[i].style.display = "block";
@@ -133,43 +141,104 @@ export class VentanaJuegoComponent {
   }
 
   verPersonaje(numero: number){
-    this.main.cuadroTexto.textContent = "";
-    if (numero < 3){
-      if(this.personajeGeneral[numero].style.display == "block"){
-        this.personajeGeneral[numero].style.display = "none";
-        for(let i = 0; i < this.btnPregIzq.length; i++){
-          this.btnPregIzq[i].style.display = "none";
-        }
-      } else {
-        this.personajeGeneral[numero].style.display = "block";
-        for(let i = 0; i < this.btnPregIzq.length; i++){
-          this.btnPregIzq[i].style.display = "block";
-        }
-      }
-    } else {
-      if(this.personajeGeneral[numero].style.display == "block"){
-        this.personajeGeneral[numero].style.display = "none";
-        for(let i = 0; i < this.btnPregDer.length; i++){
-          this.btnPregDer[i].style.display = "none";
-        }
-      } else {
-        this.personajeGeneral[numero].style.display = "block";
-        for(let i = 0; i < this.btnPregDer.length; i++){
-          this.btnPregDer[i].style.display = "block";
-        }
-      }
+    for(var o = 0;o < this.objetosGeneral.length;o++){
+      this.objetosGeneral[o].style.display = "none";
     }
-
+    switch (numero){
+      case 0:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg1.length; i++){
+            this.btnPreg1[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg1.length; i++){
+            this.btnPreg1[i].style.display = "block";
+          }
+        }
+        break;
+      case 1:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg2[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg2[i].style.display = "block";
+          }
+        }
+        break;
+      case 2:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg3[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg3[i].style.display = "block";
+          }
+        }
+        break;
+        case 3:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg4[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg4[i].style.display = "block";
+          }
+        }
+        break;
+        case 4:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg5[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg5[i].style.display = "block";
+          }
+        }
+        break;
+        case 5:
+        if(this.personajeGeneral[numero].style.display == "block"){
+          this.main.cuadroTexto.textContent = "";
+          this.personajeGeneral[numero].style.display = "none";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg6[i].style.display = "none";
+          }
+        } else {
+          this.personajeGeneral[numero].style.display = "block";
+          for(let i = 0; i < this.btnPreg2.length; i++){
+            this.btnPreg6[i].style.display = "block";
+          }
+        }
+        break;
+      }
   }
 
   verObjeto(numero: number){
     this.main.cuadroTexto.textContent = "";
-    if(this.objetosGeneral){
-      if(this.objetosGeneral[numero].style.display == "block"){
-        this.objetosGeneral[numero].style.display = "none";
-      } else {
-        this.objetosGeneral[numero].style.display = "block";
-      }
+    if(this.objetosGeneral[numero].style.display == "block"){
+      this.objetosGeneral[numero].style.display = "none";
+    } else {
+      this.objetosGeneral[numero].style.display = "block";
+      this.main.cuadroTexto.textContent = this.arrayEstancias[numero].objeto.descripcion;
     }
   }
 
@@ -197,7 +266,7 @@ export class VentanaJuegoComponent {
     this.mezclarArray(this.datos.rolEstanciaYObjeto);
 
     for (var i = 0; i < 6;i++){
-      this.arrayPersonajes[i] = new Personaje;
+      this.arrayPersonajes[i] = new Personaje();
       this.arrayPersonajes[i].rol = this.datos.rolEstanciaYObjeto[i];
       this.arrayPersonajes[i].imagen = this.datos.imgPersonaje[i];
       this.arrayPersonajes[i].nombre = this.arrayPersonajes[i].imagen.substring(28, 32).replace("_","");
@@ -212,16 +281,39 @@ export class VentanaJuegoComponent {
       } else {
         this.arrayPersonajes[i].respAcusar = "todos culpables";
       }
-      console.log(this.arrayPersonajes[i]);
+
+      this.arrayObjetos[i] = new Objeto();
+      this.arrayObjetos[i].nombre = this.arrayObjetos[i].imagen.substring(33, 34);
+      this.arrayObjetos[i].imagen = this.datos.imgObjetos[i];
+      this.arrayObjetos[i].rol = this.datos.rolEstanciaYObjeto[i];
+      this.arrayObjetos[i].descripcion = "";
+
+      this.arrayEstancias[i] = new Estancia();
+      this.arrayEstancias[i].nombre = this.datos.nombreEstacnias[i];
+      this.arrayEstancias[i].imagen = this.datos.imgEstancias[i+1];
+      this.arrayEstancias[i].descripcion = this.datos.descEstancias[i];
+      this.arrayEstancias[i].rol = this.datos.rolEstanciaYObjeto[i];
+      this.arrayEstancias[i].personaje = this.arrayPersonajes[i];
+      this.arrayEstancias[i].objeto = this.arrayObjetos[i];
     }
   }
 
 
-  respuestasPersonaje(numero: number, pregunta: string){
-      if(pregunta == "nombre"){
-        this.main.cuadroTexto.textContent = this.arrayPersonajes[numero].nombre;
-      }
+  respuestasPersonaje(numero: number, estancias: Estancia[], pregunta: string){
+    switch (pregunta){
+      case "nombre":
+        this.main.cuadroTexto.textContent = estancias[numero].personaje.respNombre;
+        break;
+      case "acusar":
+        this.main.cuadroTexto.textContent = estancias[numero].personaje.respAcusar;
+        break;
+      case "coartada":
+        this.main.cuadroTexto.textContent = estancias[numero].personaje.respCoartada;
+        break;
+    }
+
   }
+
 }
 
 
