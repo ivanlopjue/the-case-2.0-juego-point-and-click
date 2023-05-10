@@ -47,6 +47,7 @@ export class VentanaJuegoComponent {
 
   ngOnInit(){
     this.iniciarJuego();
+    console.log(this.arrayEstancias);
   }
 
   ocultar(){
@@ -264,35 +265,52 @@ export class VentanaJuegoComponent {
     this.mezclarArray(this.datos.imgPersonaje);
     this.mezclarArray(this.datos.imgObjetos);
     this.mezclarArray(this.datos.rolEstanciaYObjeto);
+    this.mezclarArray(this.datos.rolPersonajes);
+    this.mezclarArray(this.datos.respuestaCoartadaInocente);
+    this.mezclarArray(this.datos.respuestaCoartadaCulpable);
+    this.mezclarArray(this.datos.respuestaAcusacionSincero);
+    this.mezclarArray(this.datos.respuestaAcusacionMentiroso);
+    this.mezclarArray(this.datos.respuestaAcusacionCulpable);
+    this.mezclarArray(this.datos.respuestaAcusacionRico);
+    this.mezclarArray(this.datos.respuestaAcusacionPobre);
+    this.mezclarArray(this.datos.respuestaAcusacionCotilla);
+    this.mezclarArray(this.datos.respuestaNombre);
+    this.mezclarArray(this.datos.descripcionObjetoCulpable);
+    this.mezclarArray(this.datos.descripcionObjetoInocente);
 
     for (var i = 0; i < 6;i++){
       this.arrayPersonajes[i] = new Personaje();
-      this.arrayPersonajes[i].rol = this.datos.rolEstanciaYObjeto[i];
+      this.arrayPersonajes[i].rol = this.datos.rolPersonajes[i];
       this.arrayPersonajes[i].imagen = this.datos.imgPersonaje[i];
-      this.arrayPersonajes[i].nombre = this.arrayPersonajes[i].imagen.substring(28, 32).replace("_","");
+      this.arrayPersonajes[i].nombre = this.setNombrePersonaje(this.arrayPersonajes[i].imagen);
       this.arrayPersonajes[i].respNombre = this.arrayPersonajes[i].nombre;
-      if (this.arrayPersonajes[i].rol == "inocente"){
-        this.arrayPersonajes[i].respCoartada = "soy inocente";
+      if (this.arrayPersonajes[i].rol != "Culpable"){
+        this.arrayPersonajes[i].respCoartada = this.datos.respuestaCoartadaInocente[i];
       } else {
-        this.arrayPersonajes[i].respCoartada = "soy culpable";
+        this.arrayPersonajes[i].respCoartada = this.datos.respuestaCoartadaCulpable[0];
       }
-      if (this.arrayPersonajes[i].rol == "inocente"){
-        this.arrayPersonajes[i].respAcusar = "no acuso";
-      } else {
-        this.arrayPersonajes[i].respAcusar = "todos culpables";
-      }
+      this.arrayPersonajes[i].respAcusar = this.setRespuestaAcusacion(this.arrayPersonajes[i].rol)
 
       this.arrayObjetos[i] = new Objeto();
-      this.arrayObjetos[i].nombre = this.arrayObjetos[i].imagen.substring(33, 34);
+      this.arrayObjetos[i].nombre = this.setNombreObjeto(this.arrayObjetos[i].imagen);
       this.arrayObjetos[i].imagen = this.datos.imgObjetos[i];
       this.arrayObjetos[i].rol = this.datos.rolEstanciaYObjeto[i];
-      this.arrayObjetos[i].descripcion = "";
+      if (this.arrayObjetos[i].rol != "Culpable"){
+        this.arrayObjetos[i].descripcion = this.datos.descripcionObjetoInocente[i];
+      } else {
+        this.arrayObjetos[i].descripcion = this.datos.descripcionObjetoCulpable[i];
+      }
+
 
       this.arrayEstancias[i] = new Estancia();
       this.arrayEstancias[i].nombre = this.datos.nombreEstacnias[i];
       this.arrayEstancias[i].imagen = this.datos.imgEstancias[i+1];
-      this.arrayEstancias[i].descripcion = this.datos.descEstancias[i];
       this.arrayEstancias[i].rol = this.datos.rolEstanciaYObjeto[i];
+      if(this.arrayEstancias[i].rol != "Culpable"){
+        this.arrayEstancias[i].descripcion = this.datos.descEstanciasInocente[i];
+      }else {
+        this.arrayEstancias[i].descripcion = this.datos.descEstanciasCulpbale[i];
+      }
       this.arrayEstancias[i].personaje = this.arrayPersonajes[i];
       this.arrayEstancias[i].objeto = this.arrayObjetos[i];
     }
@@ -311,7 +329,81 @@ export class VentanaJuegoComponent {
         this.main.cuadroTexto.textContent = estancias[numero].personaje.respCoartada;
         break;
     }
+  }
 
+  setRespuestaAcusacion(rol: string){
+    var respuesta = "";
+    switch(rol){
+      case "Sincero":
+        respuesta = this.datos.respuestaAcusacionSincero[0];
+        break;
+      case "Mentiroso":
+        respuesta = this.datos.respuestaAcusacionMentiroso[0];
+        break;
+      case "Culpable":
+        respuesta = this.datos.respuestaAcusacionCulpable[0];
+        break;
+      case "Rico":
+        respuesta = this.datos.respuestaAcusacionRico[0];
+        break;
+      case "Pobre":
+        respuesta = this.datos.respuestaAcusacionPobre[0];
+        break;
+      case "Cotilla":
+        respuesta = this.datos.respuestaAcusacionCotilla[0];
+        break;
+    }
+    return respuesta;
+  }
+
+  setNombrePersonaje(imagen: string){
+    var nombre = "";
+    switch(imagen){
+      case "../../assets/img/personajes/Noah_Rios/noah.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Noah Ríos");
+        break;
+      case "../../assets/img/personajes/Doctor_X/doctor.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Doctor X");
+        break;
+      case "../../assets/img/personajes/Emily_Yang/emily.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Emily Yang");
+        break;
+      case "../../assets/img/personajes/Isa_Cortés/isa.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Isa Cortés");
+        break;
+      case "../../assets/img/personajes/Mei_Chen/mei.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Mei Chen");
+        break;
+      case "../../assets/img/personajes/Vicky_Peña/vicky.png":
+        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Vicky Peña");
+        break;
+    }
+    return nombre;
+  }
+
+  setNombreObjeto(imagen: string){
+    var nombre = "";
+    switch(imagen){
+      case "../../assets/img/objetos/objetos/5.png":
+        nombre = "Proyector holográfico";
+        break;
+      case "../../assets/img/objetos/objetos/10.png":
+        nombre = "Cuchillo de cerámica";
+        break;
+      case  "../../assets/img/objetos/objetos/6.png":
+        nombre = "Bastón de oro";
+        break;
+      case "../../assets/img/objetos/objetos/8.png":
+        nombre = "Motor de pulso";
+        break;
+      case "../../assets/img/objetos/objetos/1.png":
+        nombre = "Jarrón decorativo";
+        break;
+      case "../../assets/img/objetos/objetos/2.png":
+        nombre = "Huevo de titanio";
+        break;
+    }
+    return nombre;
   }
 
 }
