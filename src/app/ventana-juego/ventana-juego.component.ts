@@ -39,6 +39,8 @@ export class VentanaJuegoComponent {
   botonesHab5: any = document.getElementsByClassName('btnsHab5');
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
+  culpables: any[] = [];
+
 
   verJuego(){
     this.main.verJuego();
@@ -48,6 +50,25 @@ export class VentanaJuegoComponent {
   ngOnInit(){
     this.iniciarJuego();
     console.log(this.arrayEstancias);
+  }
+
+  arrayCulpables(){
+    for(var i = 0; i < 6;i++){
+      this.arrayEstancias[i].rol;
+      this.arrayPersonajes[i].rol;
+      this.arrayObjetos[i].rol;
+
+      if(this.arrayEstancias[i].rol == "Culpable"){
+        this.culpables.push(this.arrayEstancias[i].nombre);
+      }
+      if (this.arrayPersonajes[i].rol == "Culpable"){
+        this.culpables.push(this.arrayPersonajes[i].nombre)
+      }
+      if (this.arrayObjetos[i].rol == "Culpable"){
+        this.culpables.push(this.arrayObjetos[i].nombre)
+      }
+    }
+    console.log(this.culpables);
   }
 
   ocultar(){
@@ -283,7 +304,7 @@ export class VentanaJuegoComponent {
       this.arrayPersonajes[i].rol = this.datos.rolPersonajes[i];
       this.arrayPersonajes[i].imagen = this.datos.imgPersonaje[i];
       this.arrayPersonajes[i].nombre = this.setNombrePersonaje(this.arrayPersonajes[i].imagen);
-      this.arrayPersonajes[i].respNombre = this.arrayPersonajes[i].nombre;
+      this.arrayPersonajes[i].respNombre = this.datos.respuestaNombre[i].replace("{NOMBRE}", this.arrayPersonajes[i].nombre);
       if (this.arrayPersonajes[i].rol != "Culpable"){
         this.arrayPersonajes[i].respCoartada = this.datos.respuestaCoartadaInocente[i];
       } else {
@@ -292,8 +313,8 @@ export class VentanaJuegoComponent {
       this.arrayPersonajes[i].respAcusar = this.setRespuestaAcusacion(this.arrayPersonajes[i].rol)
 
       this.arrayObjetos[i] = new Objeto();
-      this.arrayObjetos[i].nombre = this.setNombreObjeto(this.arrayObjetos[i].imagen);
       this.arrayObjetos[i].imagen = this.datos.imgObjetos[i];
+      this.arrayObjetos[i].nombre = this.setNombreObjeto(this.arrayObjetos[i].imagen);
       this.arrayObjetos[i].rol = this.datos.rolEstanciaYObjeto[i];
       if (this.arrayObjetos[i].rol != "Culpable"){
         this.arrayObjetos[i].descripcion = this.datos.descripcionObjetoInocente[i];
@@ -314,6 +335,7 @@ export class VentanaJuegoComponent {
       this.arrayEstancias[i].personaje = this.arrayPersonajes[i];
       this.arrayEstancias[i].objeto = this.arrayObjetos[i];
     }
+    this.arrayCulpables();
   }
 
 
@@ -360,24 +382,25 @@ export class VentanaJuegoComponent {
     var nombre = "";
     switch(imagen){
       case "../../assets/img/personajes/Noah_Rios/noah.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Noah Ríos");
+        nombre = "Noah Ríos";
         break;
       case "../../assets/img/personajes/Doctor_X/doctor.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Doctor X");
+        nombre = "Doctor X";
         break;
       case "../../assets/img/personajes/Emily_Yang/emily.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Emily Yang");
+        nombre = "Emily Yang";
         break;
       case "../../assets/img/personajes/Isa_Cortés/isa.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Isa Cortés");
+        nombre = "Isa Cortés";
         break;
       case "../../assets/img/personajes/Mei_Chen/mei.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Mei Chen");
+        nombre = "Mei Chen";
         break;
       case "../../assets/img/personajes/Vicky_Peña/vicky.png":
-        nombre = this.datos.respuestaNombre[0].replace("{NOMBRE}", "Vicky Peña");
+        nombre = "Vicky Peña";
         break;
     }
+    this.mezclarArray(this.datos.respuestaNombre);
     return nombre;
   }
 

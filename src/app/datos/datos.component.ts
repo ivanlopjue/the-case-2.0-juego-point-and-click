@@ -129,7 +129,7 @@ export class DatosComponent {
 
   respuestaAcusacionCotilla: any[] = [
     "He escuchado algunos rumores pero no se quién podría estar involucrado en el incidente. Todos han estado actuando de manera extraña ultimamente",
-    "No quiero acusar a nadie, pero he notado que todos han estado evitando responder nuestras preguntas de manera clara",
+    "No quiero acusar a nadie, pero he notado que todos han estado evitando responder mis preguntas",
     "No sé quién pudo hacerlo. He estado observando los movimientos de todos y no confio en nadie"
   ]
 
@@ -142,7 +142,7 @@ export class DatosComponent {
     "Soy {NOMBRE}. ¿Qué puedo hacer por ti?",
     "¡Hola! {NOMBRE} a tu servicio. ¿En qué puedo ayudarte hoy?",
     "Me presento, soy {NOMBRE}. ¿En qué puedo ayudarte?",
-    "Soy {NOMBRE}. ¿En qué puedo hacer de tu día un poco más fácil?",
+    "Soy {NOMBRE}. ¿Qué puedo hacer para que tu día sea un poco más fácil?",
     "Un gusto conocerte, soy {NOMBRE}. ¿En qué puedo ayudarte?"
   ]
 
@@ -175,6 +175,7 @@ export class Estancia {
 }
 
 export class Personaje {
+  id: string = "";
   nombre: string = "";
   imagen: string = "";
   rol: string = "";

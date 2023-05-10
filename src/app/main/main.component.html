@@ -11,7 +11,30 @@
        <div class="contenedor-global" id="contenedor-global">
         <div class="textoJuego" id="textoJuego"></div>
         <div class="misNotas" id="misNotas">
-            mis notas
+            <table>
+              <tr>
+                <td>
+                  <select name="estancia" id="estancia">
+                    <option value="nada">-</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="personaje" id="personaje">
+                    <option value="nada">-</option>
+                  </select>
+                </td>
+                <td>
+                  <select name="objeto" id="objeto">
+                    <option value="nada">-</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <!-- <button (click)="resolverCrimen">Hacer una acusación</button> -->
+                </td>
+              </tr>
+            </table>
         </div>
         <app-ventana-ranking class="ranking" id="ranking">
           ranking
