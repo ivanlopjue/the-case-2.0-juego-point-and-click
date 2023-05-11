@@ -40,6 +40,7 @@ export class VentanaJuegoComponent {
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
   culpables: any[] = [];
+  boton: any;
 
 
   verJuego(){
@@ -50,23 +51,25 @@ export class VentanaJuegoComponent {
   ngOnInit(){
     this.iniciarJuego();
     console.log(this.arrayEstancias);
+
   }
 
   arrayCulpables(){
-    for(var i = 0; i < 6;i++){
-      this.arrayEstancias[i].rol;
+    for(var i = 0; i < 6; i++){
       this.arrayPersonajes[i].rol;
+      this.arrayEstancias[i].rol;
       this.arrayObjetos[i].rol;
 
-      if(this.arrayEstancias[i].rol == "Culpable"){
-        this.culpables.push(this.arrayEstancias[i].nombre);
-      }
       if (this.arrayPersonajes[i].rol == "Culpable"){
         this.culpables.push(this.arrayPersonajes[i].nombre)
+      }
+      if(this.arrayEstancias[i].rol == "Culpable"){
+        this.culpables.push(this.arrayEstancias[i].nombre);
       }
       if (this.arrayObjetos[i].rol == "Culpable"){
         this.culpables.push(this.arrayObjetos[i].nombre)
       }
+
     }
     console.log(this.culpables);
   }
@@ -114,10 +117,12 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab1";
+        estancia.value = "Sala de RV";
         estancia.text = "Sala de RV";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias", estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
 
         break;
       case "hab2":
@@ -129,10 +134,12 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab2";
+        estancia.value = "Centro de I+D";
         estancia.text = "Centro de I+D";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias", estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
 
         break;
       case "hab3":
@@ -144,10 +151,12 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab3";
+        estancia.value = "Laboratorio de IT";
         estancia.text = "Laboratorio de IT";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias",estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
 
         break;
       case "hab4":
@@ -159,10 +168,12 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab4";
+        estancia.value = "Área de descanso";
         estancia.text = "Área de descanso";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias", estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
 
         break;
       case "hab5":
@@ -174,10 +185,13 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab5";
+        estancia.value = "Estudio de diseño de IA";
         estancia.text = "Estudio de diseño de IA";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias", estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
+
 
         break;
       case "hab6":
@@ -189,10 +203,12 @@ export class VentanaJuegoComponent {
         }
 
         estancia = document.createElement("option");
-        estancia.value = "hab6";
+        estancia.value = "Sala de entrenamiento con RA";
         estancia.text = "Sala de entrenamiento con RA";
 
-        this.main.opcionesEstancias.appendChild(estancia);
+        if(!this.ifOptionExists("opcionesEstancias", estancia.value)){
+          this.main.opcionesEstancias.appendChild(estancia);
+        }
 
         break;
     }
@@ -200,6 +216,7 @@ export class VentanaJuegoComponent {
   }
 
   verPersonaje(numero: number){
+
     for(var o = 0;o < this.objetosGeneral.length;o++){
       this.objetosGeneral[o].style.display = "none";
     }
@@ -286,18 +303,29 @@ export class VentanaJuegoComponent {
           for(let i = 0; i < this.btnPreg2.length; i++){
             this.btnPreg6[i].style.display = "block";
           }
+
         }
         break;
       }
   }
 
   verObjeto(numero: number){
+    var objeto;
+
     this.main.cuadroTexto.textContent = "";
     if(this.objetosGeneral[numero].style.display == "block"){
       this.objetosGeneral[numero].style.display = "none";
     } else {
       this.objetosGeneral[numero].style.display = "block";
       this.main.cuadroTexto.textContent = this.arrayEstancias[numero].objeto.descripcion;
+
+      objeto = document.createElement("option");
+      objeto.value = this.arrayObjetos[numero].nombre;
+      objeto.text = this.arrayObjetos[numero].nombre;
+
+      if(!this.ifOptionExists("opcionesPersonajes", objeto.value)){
+        this.main.opcionesObjetos.appendChild(objeto);
+      }
     }
   }
 
@@ -377,9 +405,18 @@ export class VentanaJuegoComponent {
 
 
   respuestasPersonaje(numero: number, estancias: Estancia[], pregunta: string){
+    var personaje;
     switch (pregunta){
       case "nombre":
         this.main.cuadroTexto.textContent = estancias[numero].personaje.respNombre;
+
+        personaje = document.createElement("option");
+        personaje.value = estancias[numero].personaje.nombre;
+        personaje.text = estancias[numero].personaje.nombre;
+
+        if(!this.ifOptionExists("opcionesPersonajes", personaje.value)){
+          this.main.opcionesPersonajes.appendChild(personaje);
+        }
         break;
       case "acusar":
         this.main.cuadroTexto.textContent = estancias[numero].personaje.respAcusar;
@@ -466,6 +503,33 @@ export class VentanaJuegoComponent {
     return nombre;
   }
 
+  ifOptionExists(nombre: string, valorBuscado: string) {
+    var negativo = false;
+    switch(nombre){
+      case "opcionesEstancias":
+        for (let i = 0; i < this.main.opcionesEstancias.options.length; i++) {
+          if (this.main.opcionesEstancias.options[i].value === valorBuscado) {
+            negativo = true;
+          }
+        }
+        break;
+      case "opcionesPersonajes":
+        for (let i = 0; i < this.main.opcionesPersonajes.options.length; i++) {
+          if (this.main.opcionesPersonajes.options[i].value === valorBuscado) {
+            negativo = true;
+          }
+        }
+        break;
+      case "opcionesObjetos":
+        for (let i = 0; i < this.main.opcionesObjetos.options.length; i++) {
+          if (this.main.opcionesObjetos.options[i].value === valorBuscado) {
+            negativo = true;
+          }
+        }
+        break;
+    }
+    return negativo;
+  }
 }
 
 

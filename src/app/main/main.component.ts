@@ -6,6 +6,8 @@ import { Component} from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+  arrayCulpable: any [] = [];
+  botonAcusar: any = document.getElementById('botonAcusar');
 
   pie: any = document.getElementById('pie');
   cuerpo: any = document.getElementById('cuerpo');
@@ -47,4 +49,19 @@ export class MainComponent {
       }
   }
 
+  acusar(){
+    console.log(this.obtenerValoresSelects());
+  }
+
+  obtenerValoresSelects(): {[key: string]: string} {
+    const selects = document.querySelectorAll<HTMLSelectElement>('select');
+    const valoresSelects: {[key: string]: any} = {};
+
+    for (let i = 0; i < selects.length; i++) {
+      const select = selects[i];
+      valoresSelects[i] = select.value;
+    }
+
+    return valoresSelects;
+  }
 }

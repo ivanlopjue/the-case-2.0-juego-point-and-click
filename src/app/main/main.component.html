@@ -14,10 +14,10 @@
             <table id="funcionalidad">
               <tr>
                 <td colspan="1">
-                  <label for="estancia">Estancias</label>
+                  <label for="personaje">Personajes</label>
                 </td>
                 <td colspan="1">
-                  <label for="personaje">Personajes</label>
+                  <label for="estancia">Estancias</label>
                 </td>
                 <td colspan="1">
                   <label for="objeto">Objetos</label>
@@ -25,24 +25,24 @@
               </tr>
               <tr>
                 <td colspan="1">
-                  <select name="estancia" id="estancia">
-
+                  <select name="personaje" id="personaje">
+                    <option value="nada">- Sin datos -</option>
                   </select>
                 </td>
                 <td colspan="1">
-                  <select name="personaje" id="personaje">
-
+                  <select name="estancia" id="estancia">
+                    <option value="nada">- Sin datos -</option>
                   </select>
                 </td>
                 <td colspan="1">
                   <select name="objeto" id="objeto">
-
+                    <option value="nada">- Sin datos -</option>
                   </select>
                 </td>
               </tr>
               <tr>
-                <td colspan="3">
-                  <button>Hacer acusación</button>
+                <td colspan="3" id="botonAcusar">
+                  <button (click)="acusar()">Hacer acusación</button>
                 </td>
               </tr>
             </table>

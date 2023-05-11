@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component';
 
 @Component({
   selector: 'app-datos',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./datos.component.css']
 })
 export class DatosComponent {
+
   imgEstancias: any[] = [
     "url('../../assets/img/fondos/estancias/hall.jpg')",
     "url('../../assets/img/fondos/estancias/hab_uno.jpg')",
