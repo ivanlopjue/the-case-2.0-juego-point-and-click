@@ -91,6 +91,7 @@ export class VentanaJuegoComponent {
   }
 
   verEstancia(nombreEstancia: string){
+    var estancia;
 
     this.ocultar();
     switch(nombreEstancia){
@@ -112,6 +113,12 @@ export class VentanaJuegoComponent {
           this.botonesHab1[i].style.display = "block";
         }
 
+        estancia = document.createElement("option");
+        estancia.value = "hab1";
+        estancia.text = "Sala de RV";
+
+        this.main.opcionesEstancias.appendChild(estancia);
+
         break;
       case "hab2":
         this.main.cuadroTexto.textContent = this.arrayEstancias[1].descripcion;
@@ -120,6 +127,12 @@ export class VentanaJuegoComponent {
         for (var i = 0;i < this.botonesHab2.length;i++){
           this.botonesHab2[i].style.display = "block";
         }
+
+        estancia = document.createElement("option");
+        estancia.value = "hab2";
+        estancia.text = "Centro de I+D";
+
+        this.main.opcionesEstancias.appendChild(estancia);
 
         break;
       case "hab3":
@@ -130,6 +143,12 @@ export class VentanaJuegoComponent {
           this.botonesHab3[i].style.display = "block";
         }
 
+        estancia = document.createElement("option");
+        estancia.value = "hab3";
+        estancia.text = "Laboratorio de IT";
+
+        this.main.opcionesEstancias.appendChild(estancia);
+
         break;
       case "hab4":
         this.main.cuadroTexto.textContent = this.arrayEstancias[3].descripcion;
@@ -138,6 +157,12 @@ export class VentanaJuegoComponent {
         for (var i = 0;i < this.botonesHab4.length;i++){
           this.botonesHab4[i].style.display = "block";
         }
+
+        estancia = document.createElement("option");
+        estancia.value = "hab4";
+        estancia.text = "Área de descanso";
+
+        this.main.opcionesEstancias.appendChild(estancia);
 
         break;
       case "hab5":
@@ -148,6 +173,12 @@ export class VentanaJuegoComponent {
           this.botonesHab5[i].style.display = "block";
         }
 
+        estancia = document.createElement("option");
+        estancia.value = "hab5";
+        estancia.text = "Estudio de diseño de IA";
+
+        this.main.opcionesEstancias.appendChild(estancia);
+
         break;
       case "hab6":
         this.main.cuadroTexto.textContent = this.arrayEstancias[5].descripcion;
@@ -156,6 +187,12 @@ export class VentanaJuegoComponent {
         for (var i = 0;i < this.botonesHab6.length;i++){
           this.botonesHab6[i].style.display = "block";
         }
+
+        estancia = document.createElement("option");
+        estancia.value = "hab6";
+        estancia.text = "Sala de entrenamiento con RA";
+
+        this.main.opcionesEstancias.appendChild(estancia);
 
         break;
     }

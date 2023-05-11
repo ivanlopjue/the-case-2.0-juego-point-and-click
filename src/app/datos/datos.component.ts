@@ -44,9 +44,9 @@ export class DatosComponent {
   ]
 
   nombreEstacnias: any[] = [
-    "Sala de realidad virtual",
-    "Centro de innovación y desarrollo",
-    "Laboratorio de investigación tecnológica",
+    "Sala de RV",
+    "Centro de I+D",
+    "Laboratorio de IT",
     "Área de descanso",
     "Estudio de diseño de IA",
     "Sala de entrenamiento con RA"

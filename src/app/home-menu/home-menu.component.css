@@ -9,7 +9,7 @@
 .titulo {
   grid-column: 3/19;
   grid-row: 2/5;
-  background-color: aqua;
+  background-color: lightblue;
 }
 
 .form-registro{

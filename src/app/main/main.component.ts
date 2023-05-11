@@ -18,6 +18,10 @@ export class MainComponent {
   juego: any = document.getElementById('juego');
   ranking: any = document.getElementById('ranking');
 
+  opcionesEstancias: any = document.getElementById('estancia');
+  opcionesPersonajes: any = document.getElementById('personaje');
+  opcionesObjetos: any = document.getElementById('objeto');
+
   verJuego(){
 
       if(this.juego.style.display == "grid"){

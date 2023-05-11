@@ -11,27 +11,38 @@
        <div class="contenedor-global" id="contenedor-global">
         <div class="textoJuego" id="textoJuego"></div>
         <div class="misNotas" id="misNotas">
-            <table>
+            <table id="funcionalidad">
               <tr>
-                <td>
+                <td colspan="1">
+                  <label for="estancia">Estancias</label>
+                </td>
+                <td colspan="1">
+                  <label for="personaje">Personajes</label>
+                </td>
+                <td colspan="1">
+                  <label for="objeto">Objetos</label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1">
                   <select name="estancia" id="estancia">
-                    <option value="nada">-</option>
+
                   </select>
                 </td>
-                <td>
+                <td colspan="1">
                   <select name="personaje" id="personaje">
-                    <option value="nada">-</option>
+
                   </select>
                 </td>
-                <td>
+                <td colspan="1">
                   <select name="objeto" id="objeto">
-                    <option value="nada">-</option>
+
                   </select>
                 </td>
               </tr>
               <tr>
                 <td colspan="3">
-                  <!-- <button (click)="resolverCrimen">Hacer una acusación</button> -->
+                  <button>Hacer acusación</button>
                 </td>
               </tr>
             </table>
