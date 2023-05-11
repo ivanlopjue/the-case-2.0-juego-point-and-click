@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MainComponent } from '../main/main.component';
 import { DatosComponent, Estancia, Personaje, Objeto } from '../datos/datos.component';
+import { globales } from '../globales';
+
 
 
 @Component({
@@ -40,7 +42,6 @@ export class VentanaJuegoComponent {
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
   culpables: any[] = [];
-  boton: any;
 
 
   verJuego(){
@@ -51,27 +52,29 @@ export class VentanaJuegoComponent {
   ngOnInit(){
     this.iniciarJuego();
     console.log(this.arrayEstancias);
-
   }
 
   arrayCulpables(){
     for(var i = 0; i < 6; i++){
-      this.arrayPersonajes[i].rol;
       this.arrayEstancias[i].rol;
       this.arrayObjetos[i].rol;
+      this.arrayPersonajes[i].rol;
 
-      if (this.arrayPersonajes[i].rol == "Culpable"){
-        this.culpables.push(this.arrayPersonajes[i].nombre)
-      }
       if(this.arrayEstancias[i].rol == "Culpable"){
         this.culpables.push(this.arrayEstancias[i].nombre);
       }
       if (this.arrayObjetos[i].rol == "Culpable"){
         this.culpables.push(this.arrayObjetos[i].nombre)
       }
+      if (this.arrayPersonajes[i].rol == "Culpable"){
+        this.culpables.push(this.arrayPersonajes[i].nombre)
+      }
+
 
     }
     console.log(this.culpables);
+    globales.arrayCulpables = this.culpables;
+    console.log(globales.arrayCulpables);
   }
 
   ocultar(){

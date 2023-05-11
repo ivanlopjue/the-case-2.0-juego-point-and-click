@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { globales } from '../globales';
+
 
 @Component({
   selector: 'app-main',
@@ -23,6 +25,7 @@ export class MainComponent {
   opcionesEstancias: any = document.getElementById('estancia');
   opcionesPersonajes: any = document.getElementById('personaje');
   opcionesObjetos: any = document.getElementById('objeto');
+
 
   verJuego(){
 
@@ -51,11 +54,16 @@ export class MainComponent {
 
   acusar(){
     console.log(this.obtenerValoresSelects());
+    if(this.obtenerValoresSelects().sort().every((elem, index) => elem === globales.arrayCulpables.sort()[index])){
+      console.log("acierto");
+    } else {
+      console.log("fallo");
+    }
   }
 
-  obtenerValoresSelects(): {[key: string]: string} {
+  obtenerValoresSelects() {
     const selects = document.querySelectorAll<HTMLSelectElement>('select');
-    const valoresSelects: {[key: string]: any} = {};
+    const valoresSelects: any[] = [];
 
     for (let i = 0; i < selects.length; i++) {
       const select = selects[i];
