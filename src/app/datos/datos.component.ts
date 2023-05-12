@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component';
 
 @Component({
   selector: 'app-datos',
@@ -37,10 +36,10 @@ export class DatosComponent {
   ];
 
   rolEstanciaYObjeto: any[] = [
-    "Inocente",
-    "Inocente",
-    "Inocente",
     "Culpable",
+    "Inocente",
+    "Inocente",
+    "Inocente",
     "Inocente",
     "Inocente",
   ]
@@ -57,7 +56,7 @@ export class DatosComponent {
   descEstanciasInocente: any[] = [
     "Espacio diseñado para sumergir al usuario en un ambiente virtual, mediante el uso de tecnología avanzada como gafas VR y sensores de movimiento.",
     "Espacio dedicado a la investigación, experimentación y creación de nuevas soluciones y tecnologías",
-    "Espacio donde se realizan investigaciones y experimentos en el ámbito de la tecnología. ",
+    "Espacio donde se realizan investigaciones y experimentos en el ámbito de la tecnología.",
     "Espacio diseñado para que los empleados o usuarios puedan relajarse y descansar en un ambiente cómodo y tranquilo.",
     "Espacio dedicado al diseño y desarrollo de soluciones basadas en inteligencia artificial.",
     "Espacio diseñado para que los usuarios puedan practicar y entrenar habilidades en un entorno de realidad aumentada. "
@@ -191,4 +190,10 @@ export class Objeto {
   imagen: string = "";
   descripcion: string = "";
   rol: string = "";
+}
+
+export class ObjetoRanking {
+  nombre: string = "";
+  tiempo: string = "";
+  culpable: string = "";
 }

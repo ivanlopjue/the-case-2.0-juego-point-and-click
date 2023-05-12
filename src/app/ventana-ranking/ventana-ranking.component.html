@@ -1,1 +1,13 @@
-<button class="" (click)="verRanking()">SALIR</button>
+<button (click)="verRanking()" id="salirJuego">SALIR</button>
+<table id="rankingGlobal">
+  <tr>
+    <th>JUGADOR</th>
+    <th>TIEMPO</th>
+    <th>CULPABLE</th>
+  </tr>
+  <tr *ngFor="let objeto of objetos">
+    <td>{{ objeto }}</td>
+    <td>{{ objeto }}</td>
+    <td>{{ objeto }}</td>
+  </tr>
+</table>

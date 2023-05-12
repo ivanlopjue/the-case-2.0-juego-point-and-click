@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
-import { globales } from '../globales';
+import { Globales, Ranking, rellenarRanking } from '../globales';
+import { ObjetoRanking } from '../datos/datos.component';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { globales } from '../globales';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+  rankingGlobal: ObjetoRanking = new ObjetoRanking();
   arrayCulpable: any [] = [];
   botonAcusar: any = document.getElementById('botonAcusar');
 
@@ -27,37 +29,27 @@ export class MainComponent {
   opcionesObjetos: any = document.getElementById('objeto');
 
 
-  verJuego(){
-
-      if(this.juego.style.display == "grid"){
-        this.juego.style.display = "none";
-        this.cuadroMisNotas.style.display = "none";
-        this.cuadroTexto.style.display = "none";
-
-      } else {
-        this.juego.style.display = "grid";
-        this.cuadroMisNotas.style.display = "block";
-        this.cuadroTexto.style.display = "block";
-      }
-    }
-
-
-  verRanking(){
-
-      if(this.ranking.style.display == "grid"){
-        this.ranking.style.display = "none";
-      } else {
-        this.ranking.style.display = "grid";
-        this.ranking.style.backgroundImage = "url('../../assets/img/fondos/home/fondo_ranking.jpg')";
-      }
-  }
-
   acusar(){
-    console.log(this.obtenerValoresSelects());
-    if(this.obtenerValoresSelects().sort().every((elem, index) => elem === globales.arrayCulpables.sort()[index])){
+    Globales.tiempoFinal = Date.now();
+    Globales.TiempoTotal = (Globales.tiempoFinal - Globales.tiempoInicio) / 1000;
+    const tiempo = this.obtenerTiempoJugado(Globales.TiempoTotal);
+
+    console.log(this.obtenerValoresSelects().sort());
+    if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
       console.log("acierto");
+      console.log(tiempo);
+
+      this.rankingGlobal.nombre = Globales.nombreJugador;
+      this.rankingGlobal.tiempo = tiempo.toString();
+      this.rankingGlobal.culpable = "noah";
+      // Esto hay que cambiarlo por el personaje culpable
+
+      Ranking.push(this.rankingGlobal);
+      localStorage.setItem('Ranking', JSON.stringify(Ranking));
+
     } else {
       console.log("fallo");
+      console.log(tiempo);
     }
   }
 
@@ -70,6 +62,18 @@ export class MainComponent {
       valoresSelects[i] = select.value;
     }
 
-    return valoresSelects;
+    return valoresSelects.sort();
+  }
+
+  obtenerTiempoJugado(tiempo: number){
+    const hours = Math.floor(tiempo / 3600);
+    const minutes = Math.floor((tiempo % 3600) / 60);
+    const seconds = Math.floor(tiempo % 60);
+
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
+
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
   }
 }

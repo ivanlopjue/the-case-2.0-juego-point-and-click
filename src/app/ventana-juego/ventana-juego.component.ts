@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MainComponent } from '../main/main.component';
 import { DatosComponent, Estancia, Personaje, Objeto } from '../datos/datos.component';
-import { globales } from '../globales';
+import { Globales } from '../globales';
 
 
 
@@ -13,6 +13,7 @@ import { globales } from '../globales';
 export class VentanaJuegoComponent {
   datos: DatosComponent = new DatosComponent();
   main: MainComponent = new MainComponent();
+
 
 
   arrayEstancias: Estancia[] = [];
@@ -45,8 +46,18 @@ export class VentanaJuegoComponent {
 
 
   verJuego(){
-    this.main.verJuego();
-    this.verEstancia("hall");
+
+    if(this.main.juego.style.display == "grid"){
+      this.main.juego.style.display = "none";
+      this.main.cuadroMisNotas.style.display = "none";
+      this.main.cuadroTexto.style.display = "none";
+
+    } else {
+      this.main.juego.style.display = "grid";
+      this.main.cuadroMisNotas.style.display = "block";
+      this.main.cuadroTexto.style.display = "block";
+    }
+
   }
 
   ngOnInit(){
@@ -73,8 +84,7 @@ export class VentanaJuegoComponent {
 
     }
     console.log(this.culpables);
-    globales.arrayCulpables = this.culpables;
-    console.log(globales.arrayCulpables);
+    Globales.arrayCulpables = this.culpables;
   }
 
   ocultar(){
@@ -102,8 +112,8 @@ export class VentanaJuegoComponent {
     this.ocultar();
     switch(nombreEstancia){
       case "hall":
-        this.main.cuadroTexto.textContent = "";
-        this.main.cuadroTexto.textContent = "Hall";
+        this.main.cuadroTexto.innerHTML = "";
+        this.main.cuadroTexto.innerHTML = '<b>' + "- Hall -" + '</b>';
         this.main.juego.style.backgroundImage = this.datos.imgEstancias[0];
 
         for (var i = 0;i < this.botonesHall.length;i++){
@@ -112,7 +122,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab1":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[0].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[0].imagen;
 
         for (var i = 0;i < this.botonesHab1.length;i++){
@@ -129,7 +139,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab2":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[1].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[1].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[1].imagen;
 
         for (var i = 0;i < this.botonesHab2.length;i++){
@@ -146,7 +156,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab3":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[2].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[2].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[2].imagen;
 
         for (var i = 0;i < this.botonesHab3.length;i++){
@@ -163,7 +173,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab4":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[3].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[3].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[3].imagen;
 
         for (var i = 0;i < this.botonesHab4.length;i++){
@@ -180,7 +190,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab5":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[4].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[4].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[4].imagen;
 
         for (var i = 0;i < this.botonesHab5.length;i++){
@@ -198,7 +208,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab6":
-        this.main.cuadroTexto.textContent = this.arrayEstancias[5].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[5].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[5].imagen;
 
         for (var i = 0;i < this.botonesHab6.length;i++){
