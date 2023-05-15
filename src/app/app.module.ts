@@ -9,6 +9,8 @@ import { HomeMenuComponent } from './home-menu/home-menu.component';
 import { VentanaJuegoComponent } from './ventana-juego/ventana-juego.component';
 import { VentanaRankingComponent } from './ventana-ranking/ventana-ranking.component';
 import { DatosComponent } from './datos/datos.component';
+import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DatosComponent } from './datos/datos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
