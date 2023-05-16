@@ -5,5 +5,10 @@ export const Globales = {
   TiempoTotal: 0,
   arrayCulpables: ["","",""],
   nombreCulpbale: "",
-  intentosAcusacion: 3
+  intentosAcusacion: 3,
+  nombreSincero: "",
+  nombreMentiroso: "",
+  nombreRico: "",
+  nombrePobre: "",
+  nombreCotilla: ""
 }
