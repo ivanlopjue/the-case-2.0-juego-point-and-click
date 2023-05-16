@@ -1,13 +1,17 @@
 <button (click)="verRanking()" id="salirJuego">SALIR</button>
 <table id="rankingGlobal">
-  <tr>
-    <th>JUGADOR</th>
-    <th>TIEMPO</th>
-    <th>CULPABLE</th>
-  </tr>
-  <tr *ngFor="let objeto of objetos">
-    <td>{{ objeto }}</td>
-    <td>{{ objeto }}</td>
-    <td>{{ objeto }}</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>NOMBRE</th>
+      <th>TIEMPO</th>
+      <th>CULPABLE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ rankingArray[0]?.nombre }}</td>
+      <td>{{ rankingArray[0]?.tiempo }}</td>
+      <td>{{ rankingArray[0]?.culpable }}</td>
+    </tr>
+  </tbody>
 </table>

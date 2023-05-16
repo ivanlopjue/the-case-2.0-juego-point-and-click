@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MainComponent } from '../main/main.component';
 import { DatosComponent, Estancia, Personaje, Objeto } from '../datos/datos.component';
+import { TheCaseServiceService } from "../services/the-case-service.service"
 import { Globales } from '../globales';
 
 
@@ -12,8 +13,11 @@ import { Globales } from '../globales';
 })
 export class VentanaJuegoComponent {
   datos: DatosComponent = new DatosComponent();
-  main: MainComponent = new MainComponent();
+  main: MainComponent;
 
+  constructor(private TheCaseServiceService: TheCaseServiceService){
+    this.main = new MainComponent(TheCaseServiceService);
+  }
 
 
   arrayEstancias: Estancia[] = [];
@@ -79,6 +83,7 @@ export class VentanaJuegoComponent {
       }
       if (this.arrayPersonajes[i].rol == "Culpable"){
         this.culpables.push(this.arrayPersonajes[i].nombre)
+        Globales.nombreCulpbale = this.arrayPersonajes[i].nombre;
       }
 
 
@@ -112,8 +117,7 @@ export class VentanaJuegoComponent {
     this.ocultar();
     switch(nombreEstancia){
       case "hall":
-        this.main.cuadroTexto.innerHTML = "";
-        this.main.cuadroTexto.innerHTML = '<b>' + "- Hall -" + '</b>';
+        this.main.cuadroTexto.innerHTML = '<b>' + "- Hall -" + '</b>' + '<br>' + this.datos.textoIntro.replace("{NOMBRE}", '<b>' + Globales.nombreJugador + '</b>');
         this.main.juego.style.backgroundImage = this.datos.imgEstancias[0];
 
         for (var i = 0;i < this.botonesHall.length;i++){
@@ -122,7 +126,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab1":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[0].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML = '<b>' + this.arrayEstancias[0].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[0].imagen;
 
         for (var i = 0;i < this.botonesHab1.length;i++){

@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
-import { Globales, Ranking, rellenarRanking } from '../globales';
+import { Globales } from '../globales';
 import { ObjetoRanking } from '../datos/datos.component';
+import { TheCaseServiceService } from '../services/the-case-service.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ObjetoRanking } from '../datos/datos.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-  rankingGlobal: ObjetoRanking = new ObjetoRanking();
+  objetoRanking: ObjetoRanking;
   arrayCulpable: any [] = [];
   botonAcusar: any = document.getElementById('botonAcusar');
 
@@ -28,29 +29,43 @@ export class MainComponent {
   opcionesPersonajes: any = document.getElementById('personaje');
   opcionesObjetos: any = document.getElementById('objeto');
 
+  constructor(private TheCaseServiceService: TheCaseServiceService){
+    this.objetoRanking = new ObjetoRanking();
+  }
+
 
   acusar(){
     Globales.tiempoFinal = Date.now();
     Globales.TiempoTotal = (Globales.tiempoFinal - Globales.tiempoInicio) / 1000;
     const tiempo = this.obtenerTiempoJugado(Globales.TiempoTotal);
+    if (Globales.intentosAcusacion > 0){
+      console.log(this.obtenerValoresSelects().sort());
+      if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
+        // console.log("acierto");
+        // console.log(tiempo);
+        this.objetoRanking.nombre = Globales.nombreJugador;
+        this.objetoRanking.tiempo = tiempo.toString();
+        this.objetoRanking.culpable = Globales.nombreCulpbale;
 
-    console.log(this.obtenerValoresSelects().sort());
-    if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
-      console.log("acierto");
-      console.log(tiempo);
+        const rankingData = {
+          nombre: this.objetoRanking.nombre,
+          tiempo: this.objetoRanking.tiempo,
+          culpable: this.objetoRanking.culpable
+        }
 
-      this.rankingGlobal.nombre = Globales.nombreJugador;
-      this.rankingGlobal.tiempo = tiempo.toString();
-      this.rankingGlobal.culpable = "noah";
-      // Esto hay que cambiarlo por el personaje culpable
+        console.log(this.objetoRanking);
+        this.TheCaseServiceService.SetRanking(rankingData);
+        console.log("funciona");
 
-      Ranking.push(this.rankingGlobal);
-      localStorage.setItem('Ranking', JSON.stringify(Ranking));
-
-    } else {
-      console.log("fallo");
-      console.log(tiempo);
+      } else {
+        console.log("fallo");
+        console.log(tiempo);
+        Globales.intentosAcusacion--;
+        alert("Error, te quedan " + Globales.intentosAcusacion + " intentos");
+      }
     }
+
+
   }
 
   obtenerValoresSelects() {

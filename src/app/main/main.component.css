@@ -101,6 +101,7 @@ header{
   border: 1px solid white;
   animation: abrirDivs 2s;
   padding: 25px;
+  overflow: auto;
 }
 
 .misNotas{

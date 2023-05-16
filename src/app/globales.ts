@@ -4,11 +4,6 @@ export const Globales = {
   tiempoFinal: 0,
   TiempoTotal: 0,
   arrayCulpables: ["","",""],
-}
-
-export const Ranking: any[] = [];
-
-export function rellenarRanking(objeto: any) {
-  Ranking.push(objeto);
-  localStorage.setItem(Ranking.toString(), JSON.stringify(Ranking));
+  nombreCulpbale: "",
+  intentosAcusacion: 3
 }

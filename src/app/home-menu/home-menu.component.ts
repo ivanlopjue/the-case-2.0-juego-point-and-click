@@ -3,6 +3,7 @@ import { MainComponent } from '../main/main.component';
 import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component';
 import { Globales} from '../globales';
 import { VentanaRankingComponent } from '../ventana-ranking/ventana-ranking.component';
+import { TheCaseServiceService } from "../services/the-case-service.service"
 
 
 @Component({
@@ -12,11 +13,17 @@ import { VentanaRankingComponent } from '../ventana-ranking/ventana-ranking.comp
 })
 export class HomeMenuComponent {
 
-  main: MainComponent = new MainComponent();
-  ventana: VentanaJuegoComponent = new VentanaJuegoComponent();
-  ventanaRanking: VentanaRankingComponent = new VentanaRankingComponent();
+  main: MainComponent;
+  ventana: VentanaJuegoComponent;
+  ventanaRanking: VentanaRankingComponent;
   regex: RegExp = /^[a-zA-Z0-9]{1,15}$/;
+  rankingOrdenado: any[] = [];
 
+  constructor(private TheCaseServiceService: TheCaseServiceService){
+    this.main = new MainComponent(TheCaseServiceService);
+    this.ventana = new VentanaJuegoComponent(TheCaseServiceService);
+    this.ventanaRanking = new VentanaRankingComponent(TheCaseServiceService);
+  }
 
   verJuego(){
     const nombre = prompt("Bienvenido a The Case 2.0.\nPor favor, introduce tu nombre de menos de 15 caracteres:") ?? "";

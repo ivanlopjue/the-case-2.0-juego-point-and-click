@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MainComponent } from '../main/main.component';
-import { Ranking } from '../globales';
+import { TheCaseServiceService } from "../services/the-case-service.service"
+
 
 @Component({
   selector: 'app-ventana-ranking',
@@ -8,12 +9,21 @@ import { Ranking } from '../globales';
   styleUrls: ['./ventana-ranking.component.css']
 })
 export class VentanaRankingComponent {
-  main: MainComponent = new MainComponent();
+  rankingArray: any[] = [];
+  main: MainComponent;
   tabla: any = document.getElementById('rankingGlobal');
-  objetos: string = "";
 
+  constructor(private TheCaseServiceService: TheCaseServiceService){
+    this.main = new MainComponent(TheCaseServiceService);
+  }
 
   verRanking(){
+    this.TheCaseServiceService.verRanking().subscribe(ranking =>{
+      console.log(ranking);
+      this.rankingArray = ranking;
+      console.log(this.rankingArray);
+    })
+
     if(this.main.ranking.style.display == "grid"){
       this.main.ranking.style.display = "none";
     } else {
@@ -21,12 +31,4 @@ export class VentanaRankingComponent {
       this.main.ranking.style.backgroundImage = "url('../../assets/img/fondos/home/fondo_ranking.jpg')";
     }
   }
-
-  ngOnInit(): void {
-    const objetosGuardados = localStorage.getItem(Ranking.toString());
-    if (objetosGuardados) {
-      this.objetos = JSON.parse(objetosGuardados);
-    }
-  }
-
 }
