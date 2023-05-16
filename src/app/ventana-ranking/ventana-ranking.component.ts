@@ -16,14 +16,22 @@ export class VentanaRankingComponent {
   constructor(private TheCaseServiceService: TheCaseServiceService){
     this.main = new MainComponent(TheCaseServiceService);
   }
+  ngOnInit(){
+    this.TheCaseServiceService.verRanking().subscribe(ranking =>{
+      this.rankingArray = ranking;
+      this.rankingArray.sort((a, b) => {
+        if (a.tiempo > b.tiempo) {
+          return 1;
+        } else if (a.tiempo < b.tiempo) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    })
+  }
 
   verRanking(){
-    this.TheCaseServiceService.verRanking().subscribe(ranking =>{
-      console.log(ranking);
-      this.rankingArray = ranking;
-      console.log(this.rankingArray);
-    })
-
     if(this.main.ranking.style.display == "grid"){
       this.main.ranking.style.display = "none";
     } else {

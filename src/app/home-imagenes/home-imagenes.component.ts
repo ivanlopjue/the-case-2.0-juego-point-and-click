@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component';
+import { DatosComponent } from '../datos/datos.component';
 
 @Component({
   selector: 'app-home-imagenes',
@@ -7,6 +7,12 @@ import { VentanaJuegoComponent } from '../ventana-juego/ventana-juego.component'
   styleUrls: ['./home-imagenes.component.css']
 })
 export class HomeImagenesComponent {
+  cuadroTexto: any = document.getElementsByClassName('img6')
+  datos: DatosComponent = new DatosComponent();
+
+  ngOnInit(){
+    this.cuadroTexto[0].textContent = this.datos.textoPresentacion;
+  }
 }
 
 

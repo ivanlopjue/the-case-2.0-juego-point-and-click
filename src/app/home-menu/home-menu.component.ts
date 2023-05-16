@@ -13,6 +13,9 @@ import { TheCaseServiceService } from "../services/the-case-service.service"
 })
 export class HomeMenuComponent {
 
+  btnJuego: any = document.getElementById("boton-juego");
+  btnRnaking: any = document.getElementById("boton-ranking");
+
   main: MainComponent;
   ventana: VentanaJuegoComponent;
   ventanaRanking: VentanaRankingComponent;

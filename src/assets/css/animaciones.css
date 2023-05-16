@@ -7,6 +7,30 @@
     }
 }
 
+@keyframes cambiarImagenDeFondo {
+  0% {
+    background-image: url('../img/personajes/Doctor_X/doctor.png');
+  }
+  35% {
+    background-image: url('../img/personajes/Emily_Yang/emily.png');
+  }
+  70% {
+    background-image: url('../img/personajes/Ethan_Valdez/ethan.png');
+  }
+  100% {
+    background-image: url('../img/personajes/Mei_Chen/mei.png');
+  }
+  70% {
+    background-image: url('../img/personajes/Noah_Rios/noah.png');
+  }
+  35% {
+    background-image: url('../img/personajes/Vicky_Peña/vicky.png');
+  }
+  0% {
+    background-image: url('../img/personajes/Isa_Cortés/isa.png');
+  }
+}
+
 @keyframes colorBorde{
   0% {
       box-shadow: 0px 5px 20px lightcoral;

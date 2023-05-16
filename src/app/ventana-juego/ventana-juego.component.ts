@@ -47,7 +47,7 @@ export class VentanaJuegoComponent {
   botonesHab6: any = document.getElementsByClassName('btnsHab6');
 
   culpables: any[] = [];
-
+  empezar: boolean = false;
 
   verJuego(){
 
@@ -55,11 +55,12 @@ export class VentanaJuegoComponent {
       this.main.juego.style.display = "none";
       this.main.cuadroMisNotas.style.display = "none";
       this.main.cuadroTexto.style.display = "none";
-
+      return false;
     } else {
       this.main.juego.style.display = "grid";
       this.main.cuadroMisNotas.style.display = "block";
       this.main.cuadroTexto.style.display = "block";
+      return true;
     }
 
   }
@@ -112,6 +113,9 @@ export class VentanaJuegoComponent {
   }
 
   verEstancia(nombreEstancia: string){
+    // if(this.empezar){
+    //   this.iniciarJuego();
+    // }
     var estancia;
 
     this.ocultar();

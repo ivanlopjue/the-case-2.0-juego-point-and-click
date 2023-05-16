@@ -7,6 +7,7 @@
   background-size: 120%;
   box-shadow: 0px 5px 20px lightcoral;
   border-radius: 20px 20px;
+  background-size: cover;
 }
 
 .img1 {
@@ -48,7 +49,8 @@
 .img6{
   grid-column: 10/19;
   grid-row: 15/19;
-  background-color: lightblue;
   padding: 20px;
+  background-image: url("../../assets/img/fondos/home/fondo.jpg");
+  color: white;
 }
 

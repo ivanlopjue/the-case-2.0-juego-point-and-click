@@ -14,7 +14,7 @@ export class TheCaseServiceService {
 
   verRanking(): Observable<RankingInterface[]> {
     const rankingG = collection(this.firestore, 'ranking');
-    return collectionData(rankingG, {idField: 'nombre'}) as Observable<RankingInterface[]>
+    return collectionData(rankingG, {idField: 'id'}) as Observable<RankingInterface[]>
   }
 
   SetRanking(objetoRanking: ObjetoRanking){
