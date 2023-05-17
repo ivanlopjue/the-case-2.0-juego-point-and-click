@@ -147,7 +147,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab2":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[1].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[1].nombre + '</b>' + '<br>' + this.arrayEstancias[1].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[1].imagen;
 
         for (var i = 0;i < this.botonesHab2.length;i++){
@@ -164,7 +164,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab3":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[2].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[2].nombre + '</b>' + '<br>' + this.arrayEstancias[2].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[2].imagen;
 
         for (var i = 0;i < this.botonesHab3.length;i++){
@@ -181,7 +181,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab4":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[3].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[3].nombre + '</b>' + '<br>' + this.arrayEstancias[3].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[3].imagen;
 
         for (var i = 0;i < this.botonesHab4.length;i++){
@@ -198,7 +198,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab5":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[4].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[4].nombre + '</b>' + '<br>' + this.arrayEstancias[4].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[4].imagen;
 
         for (var i = 0;i < this.botonesHab5.length;i++){
@@ -216,7 +216,7 @@ export class VentanaJuegoComponent {
 
         break;
       case "hab6":
-        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[5].nombre + '</b>' + '<br>' + this.arrayEstancias[0].descripcion;
+        this.main.cuadroTexto.innerHTML =  '<b>' + this.arrayEstancias[5].nombre + '</b>' + '<br>' + this.arrayEstancias[5].descripcion;
         this.main.juego.style.backgroundImage = this.arrayEstancias[5].imagen;
 
         for (var i = 0;i < this.botonesHab6.length;i++){
@@ -344,7 +344,7 @@ export class VentanaJuegoComponent {
       objeto.value = this.arrayObjetos[numero].nombre;
       objeto.text = this.arrayObjetos[numero].nombre;
 
-      if(!this.ifOptionExists("opcionesPersonajes", objeto.value)){
+      if(!this.ifOptionExists("opcionesObjetos", objeto.value)){
         this.main.opcionesObjetos.appendChild(objeto);
       }
     }
