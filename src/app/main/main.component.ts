@@ -32,14 +32,14 @@ export class MainComponent {
 
   constructor(private TheCaseServiceService: TheCaseServiceService){
     this.objetoRanking = new ObjetoRanking();
-  }
 
+  }
 
   acusar(){
     Globales.tiempoFinal = Date.now();
     Globales.TiempoTotal = (Globales.tiempoFinal - Globales.tiempoInicio) / 1000;
     const tiempo = this.obtenerTiempoJugado(Globales.TiempoTotal);
-    if (Globales.intentosAcusacion >= 0){
+    if (Globales.intentosAcusacion > 0){
       console.log(this.obtenerValoresSelects().sort());
       if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
         this.objetoRanking.nombre = Globales.nombreJugador;
@@ -56,7 +56,7 @@ export class MainComponent {
 
       } else {
         Globales.intentosAcusacion--;
-        alert("Has fallado, te quedan " + (Globales.intentosAcusacion + 1) + " intentos");
+        alert("Has fallado, te quedan " + (Globales.intentosAcusacion) + " intentos");
       }
     } else {
       alert("Lo sentimos, era tu último intento y no has conseguido resolver el crimen");
