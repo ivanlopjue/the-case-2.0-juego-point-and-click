@@ -35,6 +35,9 @@ export class HomeMenuComponent {
       this.ventana.verJuego();
       this.ventana.verEstancia("hall");
       Globales.tiempoInicio = Date.now();
+    } else {
+      alert("Nombre incorrecto.\nPor favor, introduce tu nombre de menos de 15 caracteres:");
+      this.verJuego();
     }
   }
 
