@@ -49,6 +49,8 @@ export class VentanaJuegoComponent {
   culpables: any[] = [];
   empezar: boolean = false;
 
+  personajesMezclados: any[] = [];
+
   verJuego(){
 
     if(this.main.juego.style.display == "grid"){
@@ -67,7 +69,7 @@ export class VentanaJuegoComponent {
 
   ngOnInit(){
     this.iniciarJuego();
-    console.log(this.arrayEstancias);
+    // console.log(this.arrayEstancias);
   }
 
   arrayCulpables(){
@@ -89,7 +91,7 @@ export class VentanaJuegoComponent {
 
 
     }
-    console.log(this.culpables);
+    // console.log(this.culpables);
     Globales.arrayCulpables = this.culpables;
   }
 
@@ -113,9 +115,6 @@ export class VentanaJuegoComponent {
   }
 
   verEstancia(nombreEstancia: string){
-    // if(this.empezar){
-    //   this.iniciarJuego();
-    // }
     var estancia;
 
     this.ocultar();
@@ -385,18 +384,46 @@ export class VentanaJuegoComponent {
     this.mezclarArray(this.datos.descripcionObjetoCulpable);
     this.mezclarArray(this.datos.descripcionObjetoInocente);
 
-    for (var i = 0; i < 6;i++){
-      this.arrayPersonajes[i] = new Personaje();
-      this.arrayPersonajes[i].rol = this.datos.rolPersonajes[i];
-      this.arrayPersonajes[i].imagen = this.datos.imgPersonaje[i];
-      this.arrayPersonajes[i].nombre = this.setNombrePersonaje(this.arrayPersonajes[i].imagen);
-      this.arrayPersonajes[i].respNombre = this.datos.respuestaNombre[i].replace("{NOMBRE}", this.arrayPersonajes[i].nombre);
-      if (this.arrayPersonajes[i].rol != "Culpable"){
-        this.arrayPersonajes[i].respCoartada = this.datos.respuestaCoartadaInocente[i];
-      } else {
-        this.arrayPersonajes[i].respCoartada = this.datos.respuestaCoartadaCulpable[0];
+    for (var o = 0; o < 6; o++){
+      this.arrayPersonajes[o] = new Personaje();
+      this.arrayPersonajes[o].rol = this.datos.rolPersonajes[o];
+      this.arrayPersonajes[o].imagen = this.datos.imgPersonaje[o];
+      this.arrayPersonajes[o].nombre = this.setNombrePersonaje(this.arrayPersonajes[o].imagen);
+
+      switch(this.arrayPersonajes[o].rol){
+        case "Culpable":
+          Globales.nombreCulpbale = this.arrayPersonajes[o].nombre;
+          break;
+        case "Sincero":
+          Globales.nombreSincero = this.arrayPersonajes[o].nombre;
+          break;
+        case "Mentiroso":
+          Globales.nombreMentiroso = this.arrayPersonajes[o].nombre;
+          break;
+        case "Rico":
+          Globales.nombreRico = this.arrayPersonajes[o].nombre;
+          break;
+        case "Pobre":
+          Globales.nombrePobre = this.arrayPersonajes[o].nombre;
+          break;
+        case "Cotilla":
+          Globales.nombreCotilla = this.arrayPersonajes[o].nombre;
+          break;
       }
-      this.arrayPersonajes[i].respAcusar = this.setRespuestaAcusacion(this.arrayPersonajes[i].rol)
+
+      this.personajesMezclados.push(this.arrayPersonajes[o]);
+    }
+
+    for (var i = 0; i < 6;i++){
+
+      this.personajesMezclados[i].respNombre = this.datos.respuestaNombre[i].replace("{NOMBRE}", this.personajesMezclados[i].nombre);
+      if (this.personajesMezclados[i].rol != "Culpable"){
+        this.personajesMezclados[i].respCoartada = this.datos.respuestaCoartadaInocente[i];
+      } else {
+        this.personajesMezclados[i].respCoartada = this.datos.respuestaCoartadaCulpable[0];
+      }
+      this.personajesMezclados[i].respAcusar = this.setRespuestaAcusacion(this.personajesMezclados[i].rol)
+
 
       this.arrayObjetos[i] = new Objeto();
       this.arrayObjetos[i].imagen = this.datos.imgObjetos[i];
@@ -452,19 +479,19 @@ export class VentanaJuegoComponent {
     var respuesta = "";
     switch(rol){
       case "Sincero":
-        respuesta = this.datos.respuestaAcusacionSincero[0];
+        respuesta = this.datos.respuestaAcusacionSincero[0].replace("{NOMBRE}", Globales.nombreCulpbale);
         break;
       case "Mentiroso":
-        respuesta = this.datos.respuestaAcusacionMentiroso[0];
+        respuesta = this.datos.respuestaAcusacionMentiroso[0].replace("{NOMBRE}", Globales.nombreSincero);
         break;
       case "Culpable":
         respuesta = this.datos.respuestaAcusacionCulpable[0];
         break;
       case "Rico":
-        respuesta = this.datos.respuestaAcusacionRico[0];
+        respuesta = this.datos.respuestaAcusacionRico[0].replace("{NOMBRE}", Globales.nombrePobre);
         break;
       case "Pobre":
-        respuesta = this.datos.respuestaAcusacionPobre[0];
+        respuesta = this.datos.respuestaAcusacionPobre[0].replace("{NOMBRE}", Globales.nombreRico);
         break;
       case "Cotilla":
         respuesta = this.datos.respuestaAcusacionCotilla[0];
