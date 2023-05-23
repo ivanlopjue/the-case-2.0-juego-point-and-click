@@ -337,7 +337,7 @@ export class VentanaJuegoComponent {
       this.objetosGeneral[numero].style.display = "none";
     } else {
       this.objetosGeneral[numero].style.display = "block";
-      this.main.cuadroTexto.textContent = this.arrayEstancias[numero].objeto.descripcion;
+      this.main.cuadroTexto.innerHTML = "<b>" + this.arrayEstancias[numero].objeto.nombre + "</b>" + "<br>" + this.arrayEstancias[numero].objeto.descripcion;
 
       objeto = document.createElement("option");
       objeto.value = this.arrayObjetos[numero].nombre;

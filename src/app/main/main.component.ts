@@ -33,13 +33,24 @@ export class MainComponent {
   constructor(private TheCaseServiceService: TheCaseServiceService){
     this.objetoRanking = new ObjetoRanking();
 
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+
+    console.log("Resolución de la pantalla:");
+    console.log("Ancho: " + screenWidth);
+    console.log("Altura: " + screenHeight);
+
+    if(Globales.intentosAcusacion == 0){
+      console.log("funciona")
+    }
+
   }
 
   acusar(){
     Globales.tiempoFinal = Date.now();
     Globales.TiempoTotal = (Globales.tiempoFinal - Globales.tiempoInicio) / 1000;
     const tiempo = this.obtenerTiempoJugado(Globales.TiempoTotal);
-    if (Globales.intentosAcusacion > 0){
+    if (Globales.intentosAcusacion > 1){
       console.log(this.obtenerValoresSelects().sort());
       if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
         this.objetoRanking.nombre = Globales.nombreJugador;

@@ -244,8 +244,8 @@
   display: none;
   z-index: 1;
   position: absolute;
-  top: 3px;
-  left: 500px;
+  top: 0.5%;
+  left: 43.5%;
   animation: moverPersonajeDer 4s;
 }
 
@@ -253,8 +253,8 @@
   display: none;
   z-index: 1;
   position: absolute;
-  top: 3px;
-  left: 100px;
+  top: 0.5%;
+  left: 8.6%;
   animation: moverPersonajeIzq 4s;
 }
 
@@ -265,6 +265,6 @@
   z-index: 1;
   position: absolute;
   top: 170px;
-  left: 400px;
+  left: 460px;
 }
 

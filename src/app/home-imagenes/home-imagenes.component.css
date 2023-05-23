@@ -52,5 +52,7 @@
   padding: 20px;
   background-image: url("../../assets/img/fondos/home/fondo.jpg");
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
