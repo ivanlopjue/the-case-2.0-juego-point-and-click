@@ -46,11 +46,18 @@ export class MainComponent {
 
   }
 
+  comprobarIntentos(numero: number){
+    if (numero == 0){
+      alert("Lo sentimos, era tu último intento y no has conseguido resolver el crimen");
+      window.location.reload();
+    }
+  }
+
   acusar(){
     Globales.tiempoFinal = Date.now();
     Globales.TiempoTotal = (Globales.tiempoFinal - Globales.tiempoInicio) / 1000;
     const tiempo = this.obtenerTiempoJugado(Globales.TiempoTotal);
-    if (Globales.intentosAcusacion > 1){
+    if (Globales.intentosAcusacion > 0){
       console.log(this.obtenerValoresSelects().sort());
       if(this.obtenerValoresSelects().every((elem, index) => elem === Globales.arrayCulpables.sort()[index])){
         this.objetoRanking.nombre = Globales.nombreJugador;
@@ -69,10 +76,8 @@ export class MainComponent {
         Globales.intentosAcusacion--;
         alert("Has fallado, te quedan " + (Globales.intentosAcusacion) + " intentos");
       }
-    } else {
-      alert("Lo sentimos, era tu último intento y no has conseguido resolver el crimen");
-      window.location.reload();
     }
+    this.comprobarIntentos(Globales.intentosAcusacion);
   }
 
   obtenerValoresSelects() {
